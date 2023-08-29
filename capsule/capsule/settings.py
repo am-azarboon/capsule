@@ -34,6 +34,9 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
 
+    # Installed apps
+    "apps.account.apps.AccountConfig",
+
     # Django modules
     "rest_framework",
     "django_cleanup",
