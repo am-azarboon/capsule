@@ -16,6 +16,4 @@ urlpatterns = [
     path("password-reset/", views.PasswordResetView.as_view(), name="password-reset"),
     path("password-reset/confirm/", views.PasswordResetConfirmView.as_view(), name="password-reset-confirm"),
     path("password-reset/complete/", PasswordResetCompleteView.as_view(template_name="account/password_reset_complete.html"), name="password-reset-complete"),
-
-    path("main/", views.main, name="main"),
 ]

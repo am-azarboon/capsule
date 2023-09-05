@@ -200,7 +200,3 @@ class PasswordResetConfirmView(LogoutRequiredMixin, FormView):
         password_token.delete()
 
         return super().form_valid(form)
-
-
-def main(request):
-    return HttpResponse("Welcome to Capsule")

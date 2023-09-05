@@ -201,7 +201,7 @@ msgstr "کد  وارد شده صحیح نم‌باشد!"
 
 #: .\apps\account\views.py:162
 msgid "Reset password link sent to your email address."
-msgstr "لینک تغییر گذرواژه به ایمیل شما ارسال گردید."
+msgstr "لینک تغییر گذرواژه به آدرس ایمیل شما ارسال گردید."
 
 #: .\capsule\settings.py:131
 msgid "Persian"

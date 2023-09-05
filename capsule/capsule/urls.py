@@ -9,6 +9,7 @@ urlpatterns = [
     path("admin/login/", LoginView.as_view()),
     path("admin/", admin.site.urls),
     path("account/", include("apps.account.urls", namespace="account")),
+    path("", include("apps.main.urls", namespace="main")),
 ]
 
 
