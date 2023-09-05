@@ -30,7 +30,7 @@ function change_form(e) {
 
 // -----------------------------------------------
 
-// Indetify bank type based on card number
+// Indentify bank type based on card number
 
 // Bank cards' pre number
 const bankPreCardNumbers = {
@@ -61,8 +61,8 @@ const bankNameInput = document.getElementById("bank");
 
 if (document.contains(cardNumberInput)) {
     cardNumberInput.addEventListener("input", function(e) {
-        input = e.target.value.replaceAll(" ", "");  // Remove all whitespaces
-        let converted_input = Number(input);  // Conver number to integer
+        let input = e.target.value.replaceAll(" ", "");  // Remove all whitespaces
+        let converted_input = Number(input);  // Convert number to integer
 
         if (isNaN(converted_input)){
             input = input.substring(0, input.length - 1);
@@ -70,7 +70,7 @@ if (document.contains(cardNumberInput)) {
         }
         else {
             // Add bank name at 4 or 6 character input
-            if (input.length == 4 || input.length == 6) {
+            if (input.length === 4 || input.length === 6) {
                 if (converted_input in bankPreCardNumbers) {
                     bankNameInput.value = bankPreCardNumbers[converted_input];
                 }
@@ -78,7 +78,7 @@ if (document.contains(cardNumberInput)) {
                     bankNameInput.value = "";
                 }
             }
-            else if (input.length == 5 || input.length < 4) {
+            else if (input.length === 5 || input.length < 4) {
                 bankNameInput.value = "";  // Remove bank name before 6 or 4
             }
 
@@ -96,9 +96,9 @@ const cvv2Input = document.getElementById("cvv2");
 if (document.contains(cvv2Input)) {
     cvv2Input.addEventListener("input", function(e) {
         let input = e.target.value;
-        let converted_input = Number(input);  // Conver number to integer
+        let converted_input = Number(input);  // Convert number to integer
 
-        if (isNaN(converted_input) || input == " "){
+        if (isNaN(converted_input) || input === " "){
             input = input.substring(0, input.length - 1);
             cvv2Input.value = input;
         }
@@ -111,24 +111,24 @@ const monthExp = document.getElementById("month-exp");
 if (document.contains(monthExp)) {
     monthExp.addEventListener("input", function(e) {
         let input = e.target.value;
-        let converted_input = Number(input);  // Conver number to integer
+        let converted_input = Number(input);  // Convert number to integer
 
-        if (isNaN(converted_input) || input == " "){
+        if (isNaN(converted_input) || input === " "){
             input = input.substring(0, input.length - 1);
             monthExp.value = input;
         }
     })
 }
 
-// Prevent user to input non-number in cvv2 filed
+// Prevent user to input non-number in year-exp filed
 const yearExp = document.getElementById("year-exp");
 
 if (document.contains(yearExp)) {
     yearExp.addEventListener("input", function(e) {
         let input = e.target.value;
-        let converted_input = Number(input);  // Conver number to integer
+        let converted_input = Number(input);  // Convert number to integer
 
-        if (isNaN(converted_input) || input == " "){
+        if (isNaN(converted_input) || input === " "){
             input = input.substring(0, input.length - 1);
             yearExp.value = input;
         }

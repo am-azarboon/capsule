@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-08-29 11:27+0330\n"
+"POT-Creation-Date: 2023-09-05 19:51+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,9 +18,210 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-#: .\capsule\settings.py:119
+#: .\apps\account\admin.py:21
+msgid "Personal info"
+msgstr "اطلاعات شخصی"
+
+#: .\apps\account\admin.py:22
+msgid "Permissions"
+msgstr "دسترسی ها"
+
+#: .\apps\account\admin.py:23
+msgid "Important dates"
+msgstr "تاریخ های مهم"
+
+#: .\apps\account\apps.py:8
+msgid "Accounts"
+msgstr "حساب ها"
+
+#: .\apps\account\forms.py:14
+msgid "Mobile number or email address"
+msgstr "شماره موبایل یا ایمیل"
+
+#: .\apps\account\forms.py:18
+msgid "Password"
+msgstr "گذرواژه"
+
+#: .\apps\account\forms.py:30
+msgid "Entered data is not correct!"
+msgstr "اطلاعات  وارد شده صحیح نیست!"
+
+#: .\apps\account\forms.py:39
+msgid "FullName*"
+msgstr "*نام کامل"
+
+#: .\apps\account\forms.py:43
+msgid "Email Address*"
+msgstr "*نشانی ایمیل"
+
+#: .\apps\account\forms.py:47 .\apps\account\forms.py:126
+msgid "Password*"
+msgstr "*گذرواژه"
+
+#: .\apps\account\forms.py:52 .\apps\account\forms.py:131
+msgid "Repeat Password*"
+msgstr "*تکرار گذرواژه"
+
+#: .\apps\account\forms.py:63 .\apps\account\forms.py:142
+msgid "Passwords are not match!"
+msgstr "گذرواژه وارد شده یکسان نیست!"
+
+#: .\apps\account\forms.py:75
+msgid "User is already exists!"
+msgstr "این کاربر از قبل موجود است!"
+
+#: .\apps\account\forms.py:89
+msgid "Sent code"
+msgstr "کد ارسال شده"
+
+#: .\apps\account\forms.py:97
+#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1845
+msgid "Email address"
+msgstr "آدرس ایمیل"
+
+#: .\apps\account\forms.py:119
+msgid "User with this email does not exists!"
+msgstr "کاربری با این ایمیل یافت نشد!"
+
+#: .\apps\account\handlers.py:37
+msgid "Welcome to Capsule :)"
+msgstr ""
+
+#: .\apps\account\handlers.py:46
+msgid "Reset user password"
+msgstr ""
+
+#: .\apps\account\handlers.py:55
+msgid "Email verification code"
+msgstr ""
+
+#: .\apps\account\managers.py:10
+msgid "Users must have an email address"
+msgstr "کاربران باید یک ایمیل معتبر داشته باشند"
+
+#: .\apps\account\models.py:12
+msgid "Email Address"
+msgstr "نشانی ایمیل"
+
+#: .\apps\account\models.py:13
+msgid "Mobile number"
+msgstr "شماره موبایل"
+
+#: .\apps\account\models.py:14
+msgid "Name"
+msgstr "نام"
+
+#: .\apps\account\models.py:15
+msgid "Is_verify"
+msgstr "تایید شده"
+
+#: .\apps\account\models.py:28
+msgid "User"
+msgstr "کاربر"
+
+#: .\apps\account\models.py:29
+msgid "Token"
+msgstr "توکن"
+
+#: .\apps\account\models.py:30
+msgid "Created at"
+msgstr "تاریخ ایجاد"
+
+#: .\apps\account\models.py:31
+msgid "Expired at"
+msgstr "تاریخ انقضا"
+
+#: .\apps\account\templates\account\login.html:9
+#: .\apps\account\templates\account\login.html:34
+#: .\apps\account\templates\account\password_reset.html:43
+#: .\apps\account\templates\account\password_reset_complete.html:19
+msgid "Login"
+msgstr "ورود"
+
+#: .\apps\account\templates\account\login.html:21
+#: .\apps\account\templates\account\password_reset.html:29
+#: .\apps\account\templates\account\password_reset_complete.html:13
+#: .\apps\account\templates\account\password_reset_confirm.html:24
+#: .\apps\account\templates\account\register.html:21
+#: .\apps\account\templates\account\verification.html:27 .\capsule\urls.py:18
+msgid "Capsule"
+msgstr "کپسول"
+
+#: .\apps\account\templates\account\login.html:38
+msgid "Forgot password"
+msgstr "فراموشی گذرواژه"
+
+#: .\apps\account\templates\account\login.html:39
+#: .\apps\account\templates\account\register.html:9
+#: .\apps\account\templates\account\register.html:37
+msgid "Register"
+msgstr "ثبت نام"
+
+#: .\apps\account\templates\account\password_reset.html:9
+#: .\apps\account\templates\account\password_reset_complete.html:9
+#: .\apps\account\templates\account\password_reset_confirm.html:10
+msgid "Password reset"
+msgstr "ایجاد گذرواژه جدید"
+
+#: .\apps\account\templates\account\password_reset.html:39
+msgid "Send"
+msgstr "ارسال"
+
+#: .\apps\account\templates\account\password_reset_complete.html:16
+msgid "Your password changed successfully. Now you can login."
+msgstr "گذرواژه شما با موفقیت تغییر کرد. اکنون می‌توانید وارد شوید."
+
+#: .\apps\account\templates\account\password_reset_confirm.html:38
+msgid "Submit"
+msgstr "ارسال"
+
+#: .\apps\account\templates\account\verification.html:9
+msgid "Email verify"
+msgstr "تایید ایمیل"
+
+#: .\apps\account\templates\account\verification.html:22
+msgid "Code has been sent to your email address."
+msgstr "کد تایید به آدرس ایمیل شما ارسال شد."
+
+#: .\apps\account\templates\account\verification.html:33
+msgid "Verify"
+msgstr "تایید"
+
+#: .\apps\account\templates\account\verification.html:37
+msgid "Resend"
+msgstr "ارسال مجدد"
+
+#: .\apps\account\views.py:85 .\apps\account\views.py:98
+msgid "Code has bean expired! Please try again."
+msgstr "کد منتقضی شده است! لطفاً مجدد امتحان کنید."
+
+#: .\apps\account\views.py:88
+msgid "Entered code is not correct!"
+msgstr "کد  وارد شده صحیح نم‌باشد!"
+
+#: .\apps\account\views.py:162
+msgid "Reset password link sent to your email address."
+msgstr "لینک تغییر گذرواژه به ایمیل شما ارسال گردید."
+
+#: .\capsule\settings.py:131
 msgid "Persian"
 msgstr "فارسی"
+
+#: .\capsule\urls.py:16
+msgid "Site Management"
+msgstr "مدیریت وبسایت"
+
+#: .\capsule\urls.py:17
+msgid "Management Panel"
+msgstr "پنل مدیریت"
+
+#: .\templates\admin\base_site.html:4
+msgid "Django site admin"
+msgstr "مدیر سایت جنگو"
+
+#: .\templates\admin\base_site.html:23
+msgid "Django administration"
+msgstr "مدیریت جنگو"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:15
 msgid "Messages"
@@ -316,10 +517,6 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1793
 msgid "Duration"
 msgstr ""
-
-#: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1845
-msgid "Email address"
-msgstr "آدرس الکترونیک"
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1870
 msgid "File path"
@@ -1228,3 +1425,6 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:248
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Please check 'Spams' if didn't find it"
+#~ msgstr "اگر آنرا نیافتید 'اسپم‌ها' را بررسی کنید"

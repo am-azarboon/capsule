@@ -38,13 +38,15 @@ function open_nav() {
   navBtn.classList.toggle("right-64");
 }
 
-// Hide sidebar when click outside  
-document.onclick = function(e) {
-  if (!sidebar.contains(e.target) && e.target.id !== "sidebar" && e.target.id !== "toggle") {
-    if (!sidebar.classList.contains("right-[-1000px]")) {
-      sidebar.classList.add("right-[-1000px]");
-      navBtn.classList.toggle("right-64");
-      navBtn.classList.toggle("right-0");
+// Hide sidebar when click outside
+if (document.contains(sidebar)) {
+  document.onclick = function(e) {
+    if (!sidebar.contains(e.target) && e.target.id !== "sidebar" && e.target.id !== "toggle") {
+      if (!sidebar.classList.contains("right-[-1000px]")) {
+        sidebar.classList.add("right-[-1000px]");
+        navBtn.classList.toggle("right-64");
+        navBtn.classList.toggle("right-0");
+      }
     }
   }
 }

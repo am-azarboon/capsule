@@ -1,0 +1,44 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    {% include "includes/head_references.html" %}
+    <title>{% translate "Email verify" %}</title>
+</head>
+
+<body class="h-screen w-screen bg-gray-100 flex flex-col items-center gap-2 sm:px-14 py-14" dir="rtl">
+    {% if form.errors %}
+        <div id="alert-1" class="flex items-center p-4 mb-4 text-blue-800 rounded-lg bg-gray-300" role="alert">
+            <div class="mx-2 text-sm font-medium">
+                {{ form.code.errors }}
+            </div>
+        </div>
+    {% else %}
+        <div id="alert-1" class="flex items-center p-4 mb-4 text-blue-800 rounded-lg bg-gray-300" role="alert">
+            <div class="mx-2 text-sm font-medium">
+                {% translate "Code has been sent to your email address." %}
+            </div>
+        </div>
+    {% endif %}
+
+    <h1 class="text-center text-4xl text-gray-700 font-iransans-extrablack">{% translate "Capsule" %}</h1>
+
+    <main class="sm:w-96 w-10/12 bg-gray-300 flex flex-col items-center justify-center rounded-xl p-8 md:mt-20 mt-12">
+        <form class="w-full flex flex-col gap-2 ltr text-slate-700" method="POST">
+            {% csrf_token %}
+            {{ form.code }}
+            <button class="bg-slate-700 text-white mt-4 p-2 rounded-md hover:bg-slate-800" type="submit" title="verify">{% translate "Verify" %}</button>
+        </form>
+
+        <section class="text-slate-800 flex flex-row-reverse flex-wrap justify-center gap-1 mt-10">
+            <a href="#" id="resend-btn" class="hover:text-slate-600 hidden">{% translate "Resend" %}</a>
+            <div id="resend-timer" class="ss01">(2:00)</div>
+        </section>
+    </main>
+
+    {% include "includes/footer_references.html" %}
+</body>
+</html>

@@ -1,0 +1,58 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    {% include "includes/head_references.html" %}
+    <title>{% translate "Register" %}</title>
+</head>
+
+<body class="h-screen w-screen bg-gray-100 flex flex-col items-center gap-2 sm:px-14 py-14" dir="rtl">
+    {% if form.non_field_errors %}
+        <div id="alert-1" class="flex items-center p-4 mb-4 text-blue-800 rounded-lg bg-gray-300" role="alert">
+            <div class="mx-2 text-sm font-medium">
+                {{ form.non_field_errors }}
+            </div>
+        </div>
+    {% else %}
+        {% for field in form %}
+            {% if field.errors %}
+                <div id="alert-1" class="flex items-center p-4 mb-4 text-blue-800 rounded-lg bg-gray-300" role="alert">
+                    <div class="mx-2 text-sm font-medium">
+                        {{ field.errors }}
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+
+    <h1 class="text-center text-4xl text-gray-700 font-iransans-extrablack">{% translate "Capsule" %}</h1>
+
+    <main class="sm:w-96 w-10/12 bg-gray-300 flex flex-col items-center justify-center rounded-xl p-8 md:mt-20 mt-12">
+        <form class="w-full flex flex-col gap-2 ltr text-slate-700" method="POST">
+            {% csrf_token %}
+            {{ form.name }}
+            {{ form.email }}
+
+            <div class="relative">
+                {{ form.password }}
+                <div class="absolute inset-y-0 left-0 flex items-center px-5 -top-2">
+                    <button type="button" id="pass-toggle-btn" class="bi bi-eye-fill h-4 w-4 text-xl hover:text-slate-400 text-slate-700"></button>
+                </div>
+            </div>
+            {{ form.password2 }}
+
+            <button class="bg-slate-700 text-white mt-4 p-2 rounded-md hover:bg-slate-800" type="submit">{% translate "Register" %}</button>
+        </form>
+
+        <section class="text-slate-800 flex flex-row flex-wrap justify-center gap-1 mt-10">
+            <h3>حساب دارید؟</h3>
+            <a class="hover:text-slate-500 underline" href="{% url "account:login" %}{% if request.GET.next %}?next={{ request.GET.next }}{% endif %}">ورود</a>
+        </section>
+    </main>
+
+    {% include "includes/footer_references.html" %}
+</body>
+</html>

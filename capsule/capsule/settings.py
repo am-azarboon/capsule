@@ -39,6 +39,7 @@ INSTALLED_APPS = [
 
     # Django modules
     "rest_framework",
+    "widget_tweaks",
     "django_cleanup",
 ]
 
@@ -102,6 +103,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+# Login url
+LOGIN_URL = "/account/login/"
+
+# Custom auth user
+AUTH_USER_MODEL = "account.User"
+
+# Django auth backends
+AUTHENTICATION_BACKENDS = ["django.contrib.auth.backends.ModelBackend", "apps.account.auth.MobileAuthBackend"]
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
@@ -142,3 +151,13 @@ MEDIA_ROOT = os.getenv("MEDIA_ROOT")
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Email Backend settings
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+EMAIL_HOST = os.getenv("EMAIL_HOST", "smtp.gmail.com")
+EMAIL_USE_TLS = True
+EMAIL_PORT = os.getenv("EMAIL_PORT", 587)
+EMAIL_HOST_USER = str(os.getenv("EMAIL_HOST_USER"))
+EMAIL_HOST_PASSWORD = str(os.getenv("EMAIL_HOST_PASSWORD"))
+DEFAULT_FROM_EMAIL = str(os.getenv("EMAIL_HOST_USER"))

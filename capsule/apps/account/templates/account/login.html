@@ -1,0 +1,45 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    {% include "includes/head_references.html" %}
+    <title>{% translate "Login" %}</title>
+</head>
+
+<body class="h-screen w-screen bg-gray-100 flex flex-col items-center gap-2 sm:px-14 py-14" dir="rtl">
+    {% if form.errors %}
+        <div id="alert-1" class="flex items-center p-4 mb-4 text-blue-800 rounded-lg bg-gray-300" role="alert">
+            <div class="mx-2 text-sm font-medium">
+                {{ form.non_field_errors }}
+            </div>
+        </div>
+    {% endif %}
+
+    <h1 class="text-center text-4xl text-gray-700 font-iransans-extrablack">{% translate "Capsule" %}</h1>
+
+    <main id="main" class="sm:w-96 w-10/12 bg-gray-300 flex flex-col items-center justify-center rounded-xl p-8 md:mt-20 mt-12">
+        <form class="w-full flex flex-col gap-2 rtl text-slate-700" method="POST">
+            {% csrf_token %}
+            {{ form.username }}
+            <div class="relative">
+                {{ form.password }}
+                <div class="absolute inset-y-0 left-0 flex items-center px-5 -top-2">
+                    <button type="button" id="pass-toggle-btn" class="bi bi-eye-fill h-4 w-4 text-xl hover:text-slate-400 text-slate-700"></button>
+                </div>
+            </div>
+
+            <button class="bg-slate-700 text-white mt-4 p-2 rounded-lg hover:bg-slate-800" type="submit">{% translate "Login" %}</button>
+        </form>
+
+        <section class="flex flex-col items-center text-slate-800 gap-3 mt-10">
+            <a href="{% url "account:password-reset" %}" id="pass-forgot" class="hover:text-slate-500">{% translate "Forgot password" %}</a>
+            <a href="{% url "account:register" %}{% if request.GET.next %}?next={{ request.GET.next }}{% endif %}" id="register" class="hover:text-slate-500">{% translate "Register" %}</a>
+        </section>
+    </main>
+
+    {% include "includes/footer_references.html" %}
+</body>
+</html>
