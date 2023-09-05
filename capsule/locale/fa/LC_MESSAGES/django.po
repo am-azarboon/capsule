@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-05 19:51+0330\n"
+"POT-Creation-Date: 2023-09-05 20:48+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -135,6 +135,7 @@ msgstr "تاریخ انقضا"
 #: .\apps\account\templates\account\login.html:34
 #: .\apps\account\templates\account\password_reset.html:43
 #: .\apps\account\templates\account\password_reset_complete.html:19
+#: .\apps\main\templates\main\index.html:17
 msgid "Login"
 msgstr "ورود"
 
@@ -142,8 +143,9 @@ msgstr "ورود"
 #: .\apps\account\templates\account\password_reset.html:29
 #: .\apps\account\templates\account\password_reset_complete.html:13
 #: .\apps\account\templates\account\password_reset_confirm.html:24
-#: .\apps\account\templates\account\register.html:21
-#: .\apps\account\templates\account\verification.html:27 .\capsule\urls.py:18
+#: .\apps\account\templates\account\register.html:31
+#: .\apps\account\templates\account\verification.html:27
+#: .\apps\main\templates\main\index.html:9 .\capsule\urls.py:19
 msgid "Capsule"
 msgstr "کپسول"
 
@@ -153,7 +155,8 @@ msgstr "فراموشی گذرواژه"
 
 #: .\apps\account\templates\account\login.html:39
 #: .\apps\account\templates\account\register.html:9
-#: .\apps\account\templates\account\register.html:37
+#: .\apps\account\templates\account\register.html:47
+#: .\apps\main\templates\main\index.html:18
 msgid "Register"
 msgstr "ثبت نام"
 
@@ -203,15 +206,19 @@ msgstr "کد  وارد شده صحیح نم‌باشد!"
 msgid "Reset password link sent to your email address."
 msgstr "لینک تغییر گذرواژه به آدرس ایمیل شما ارسال گردید."
 
-#: .\capsule\settings.py:131
+#: .\apps\main\templates\main\index.html:14
+msgid "Welcome to Capsule App"
+msgstr "به اپلیکیشن کپسول خوش آمدید"
+
+#: .\capsule\settings.py:132
 msgid "Persian"
 msgstr "فارسی"
 
-#: .\capsule\urls.py:16
+#: .\capsule\urls.py:17
 msgid "Site Management"
 msgstr "مدیریت وبسایت"
 
-#: .\capsule\urls.py:17
+#: .\capsule\urls.py:18
 msgid "Management Panel"
 msgstr "پنل مدیریت"
 

@@ -18,7 +18,9 @@
         </div>
     {% endif %}
 
-    <h1 class="text-center text-4xl text-gray-700 font-iransans-extrablack">{% translate "Capsule" %}</h1>
+    <h1 class="text-center text-4xl text-gray-700 font-iransans-extrablack">
+        <a href="{% url "main:main" %}">{% translate "Capsule" %}</a>
+    </h1>
 
     <main id="main" class="sm:w-96 w-10/12 bg-gray-300 flex flex-col items-center justify-center rounded-xl p-8 md:mt-20 mt-12">
         <form class="w-full flex flex-col gap-2 rtl text-slate-700" method="POST">

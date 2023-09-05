@@ -1,3 +1,7 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
+from django.shortcuts import reverse
 
-# Create your views here.
+
+# Render MainView
+class MainView(TemplateView):
+    template_name = "main/index.html"

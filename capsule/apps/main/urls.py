@@ -5,4 +5,6 @@ from . import views
 # urls base name
 app_name = "main"
 
-urlpatterns = []
+urlpatterns = [
+    path("", views.MainView.as_view(), name="main"),
+]

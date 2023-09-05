@@ -1,6 +1,6 @@
 from django.utils.translation import gettext as _
-from django.http import HttpResponse, JsonResponse, Http404
 from django.views.generic import FormView, View
+from django.http import JsonResponse, Http404
 from django.contrib.auth import login
 from django.shortcuts import reverse
 from django.urls import reverse_lazy
@@ -18,7 +18,7 @@ import json
 class LoginView(LogoutRequiredMixin, FormView):
     template_name = "account/login.html"
     form_class = forms.LoginForm
-    success_url = reverse_lazy("account:main")
+    success_url = reverse_lazy("main:main")
 
     def get_success_url(self):
         """ Change success url based on 'next' parameter """
@@ -67,7 +67,7 @@ class RegisterView(LogoutRequiredMixin, FormView):
 class VerifyEmailView(LogoutRequiredMixin, VerifyPreviousUrlMixin, FormView):
     template_name = "account/verification.html"
     form_class = forms.EmailVerifyForm
-    success_url = reverse_lazy("account:main")
+    success_url = reverse_lazy("main:main")
 
     def get_success_url(self):
         """ Change success url based on ?next parameter """

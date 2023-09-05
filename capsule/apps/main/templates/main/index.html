@@ -1,0 +1,22 @@
+{% load static %}
+{% load i18n %}
+
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    {% include "includes/head_references.html" %}
+    <title>{% translate "Capsule" %}</title>
+</head>
+
+<body class="h-screen w-screen bg-gray-100 flex flex-col items-center gap-2 sm:px-14 py-14" dir="rtl">
+    <main class="sm:w-96 w-10/12 bg-gray-300 flex flex-col items-center justify-center rounded-xl p-8 md:mt-20 mt-12">
+        <h3 class="text-center">{% translate "Welcome to Capsule App" %}</h3>
+
+        <section class="flex flex-col items-center text-slate-800 gap-3 mt-10">
+            <a href="{% url "account:login" %}" id="pass-forgot" class="hover:text-slate-500">{% translate "Login" %}</a>
+            <a href="{% url "account:register" %}" id="register" class="hover:text-slate-500">{% translate "Register" %}</a>
+        </section>
+    </main>
+</body>
+</html>
