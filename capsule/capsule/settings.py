@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     # Installed apps
     "apps.account.apps.AccountConfig",
     "apps.main.apps.MainConfig",
+    "apps.console.apps.ConsoleConfig",
 
     # Django modules
     "rest_framework",

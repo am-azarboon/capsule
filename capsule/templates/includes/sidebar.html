@@ -1,0 +1,70 @@
+{% load static %}
+{% load i18n %}
+
+<nav id="sidebar" class="lg:w-[20rem] w-[16rem] h-screen flex flex-col justify-between lg:sticky lg:right-0 top-0 fixed right-[-1000px] z-20 lg:overflow-y-auto overflow-y-scroll lg:bg-gray-100 bg-gray-800 sidebar">
+    <div>
+        <div class="lg:bg-gray-300 bg-gray-400 flex flex-col rounded-bl-[40px] gap-8 pt-12 pb-8 lg:pr-14 pr-6 pl-5">
+            <section class="flex flex-row justify-between pr-1">
+                <a href="#">
+                    <div class="flex flex-row gap-3">
+                        <img src="{% static "img/pill.png" %}" alt="Capsule" width="36" height="36">
+                        <h3 class="font-iransans-extrablack text-3xl text-gray-700">{% translate "Capsule" %}</h3>
+                    </div>
+                </a>
+            </section>
+            <div class="max-w-[12rem] flex flex-row items-center mt-2 px-1">
+                <a href="#" class="flex flex-row items-center gap-3 text-slate-800 hover:text-slate-500" title="{% translate "User account" %}">
+                    <img class="min-w-[35px]" src="{% static "img/profile.png" %}" alt="User image" width="25" height="25">
+                    <!-- <i class="bi bi-person-circle text-3xl" style="-webkit-text-stroke: 0.5px;"></i> -->
+                    <h3 class="max-w-[18rem] text-sm text-right flex-wrap">امیرمهدی محمد پور</h3>
+                </a>
+            </div>
+        </div>
+        <ul class="flex flex-col gap-4 pt-12 pb-8 lg:pr-14 pr-6">
+            <li>
+                <a class="lg:text-slate-800 text-slate-600 flex flex-row items-center gap-8" href="#">
+                    <i class="bi bi-house bg-slate-300 rounded-lg px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 1px;"></i>
+                    <h4 class="font-bold">{% translate "Dashboard" %}</h4>
+                    <i class="bi bi-caret-left-fill"></i>
+                </a>
+            </li>
+            <li>
+                <a class="text-gray-400 hover:text-slate-600 flex flex-row items-center gap-8" href="#">
+                    <i class="bi bi-shield-lock rounded-lg mt-1 px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 0.7px;"></i>
+                    <h4 class="font-bold">{% translate "Passwords" %}</h4>
+                </a>
+            </li>
+            <li>
+                <a class="text-gray-400 hover:text-slate-600 flex flex-row items-center gap-8" href="#">
+                    <i class="bi bi-bookmark rounded-lg px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 1px;"></i>
+                    <h4 class="font-bold">{% translate "Archives" %}</h4>
+                </a>
+            </li>
+            <li>
+                <a class="text-gray-400 hover:text-slate-600 flex flex-row items-center gap-8" href="#">
+                    <i class="bi bi-gear rounded-lg px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 0.7px;"></i>
+                    <h4 class="font-bold">{% translate "Settings" %}</h4>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Generate password for first time -->
+    <div id="generate-pass" class="w-full lg:px-10 px-8 pb-10 mt-20">
+        <a href="#" onclick="generate_pass()"
+           class="bg-slate-700 max-w-[18rem] flex flex-row items-center gap-2 rounded-full p-2 btn-shadow" title="{% translate "Random password" %}">
+            <i class="bi bi-shield-lock bg-slate-500 text-amber-300 text-2xl rounded-full px-2.5 pt-2 pb-0.5"></i>
+            <h5 class="text-white font-bold">{% translate "Generate pass" %}</h5>
+        </a>
+    </div>
+
+    <!-- generated password and try again -->
+    <div id="regenerate-pass" class="w-full lg:px-10 px-8 pb-10 mt-20 hidden">
+        <div class="bg-slate-700 max-w-[18rem] flex flex-row items-center gap-2 rounded-full p-2">
+            <a href="#" onclick="generate_pass()"
+               class="bi bi-arrow-clockwise bg-slate-500 text-amber-300 text-2xl rounded-full px-2.5 pt-2 pb-0.5"
+               title="{% translate "Random password" %}"></a>
+            <h5 id="pass-field" class="text-white text-sm font-bold font-nunito ltr mt-0.5">Wa*5@sTbr89</h5>
+        </div>
+    </div>
+</nav>

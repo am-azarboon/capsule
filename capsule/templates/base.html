@@ -9,3 +9,27 @@
     <title>{% block title %}{% endblock %}</title>
 </head>
 
+<body class="bg-gray-100" dir="rtl">
+    <button id="toggle" class="bi bi-list bg-slate-700 text-slate-100 sticky top-4 right-0 text-2xl rounded-l-lg lg:hidden z-10 pt-2 py-1 px-2" type="button" onclick="open_nav()"></button>
+
+    <div class="flex flex-row lg:flex-nowrap flex-wrap">
+        <!-- Start sidebar -->
+        {% include "includes/sidebar.html" %}
+        <!-- .End sidebar -->
+
+        <div class="w-screen">
+            <!-- Start Header of main section -->
+            {% include "includes/header.html" %}
+            <!-- .End header -->
+
+            <!-- Start main section -->
+            {% block content %}
+            {% endblock %}
+            <!-- .End Mian section -->
+        </div>
+    </div>
+
+    {% include "includes/footer_references.html" %}
+</body>
+
+</html>

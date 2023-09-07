@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-05 20:48+0330\n"
+"POT-Creation-Date: 2023-09-07 13:48+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -132,30 +132,31 @@ msgid "Expired at"
 msgstr "تاریخ انقضا"
 
 #: .\apps\account\templates\account\login.html:9
-#: .\apps\account\templates\account\login.html:34
-#: .\apps\account\templates\account\password_reset.html:43
+#: .\apps\account\templates\account\login.html:36
+#: .\apps\account\templates\account\password_reset.html:45
 #: .\apps\account\templates\account\password_reset_complete.html:19
 #: .\apps\main\templates\main\index.html:17
 msgid "Login"
 msgstr "ورود"
 
-#: .\apps\account\templates\account\login.html:21
-#: .\apps\account\templates\account\password_reset.html:29
+#: .\apps\account\templates\account\login.html:22
+#: .\apps\account\templates\account\password_reset.html:30
 #: .\apps\account\templates\account\password_reset_complete.html:13
 #: .\apps\account\templates\account\password_reset_confirm.html:24
-#: .\apps\account\templates\account\register.html:31
-#: .\apps\account\templates\account\verification.html:27
+#: .\apps\account\templates\account\register.html:32
+#: .\apps\account\templates\account\verification.html:28
 #: .\apps\main\templates\main\index.html:9 .\capsule\urls.py:19
+#: .\templates\includes\sidebar.html:11
 msgid "Capsule"
 msgstr "کپسول"
 
-#: .\apps\account\templates\account\login.html:38
+#: .\apps\account\templates\account\login.html:40
 msgid "Forgot password"
 msgstr "فراموشی گذرواژه"
 
-#: .\apps\account\templates\account\login.html:39
+#: .\apps\account\templates\account\login.html:41
 #: .\apps\account\templates\account\register.html:9
-#: .\apps\account\templates\account\register.html:47
+#: .\apps\account\templates\account\register.html:49
 #: .\apps\main\templates\main\index.html:18
 msgid "Register"
 msgstr "ثبت نام"
@@ -166,7 +167,7 @@ msgstr "ثبت نام"
 msgid "Password reset"
 msgstr "ایجاد گذرواژه جدید"
 
-#: .\apps\account\templates\account\password_reset.html:39
+#: .\apps\account\templates\account\password_reset.html:41
 msgid "Send"
 msgstr "ارسال"
 
@@ -186,11 +187,11 @@ msgstr "تایید ایمیل"
 msgid "Code has been sent to your email address."
 msgstr "کد تایید به آدرس ایمیل شما ارسال شد."
 
-#: .\apps\account\templates\account\verification.html:33
+#: .\apps\account\templates\account\verification.html:35
 msgid "Verify"
 msgstr "تایید"
 
-#: .\apps\account\templates\account\verification.html:37
+#: .\apps\account\templates\account\verification.html:39
 msgid "Resend"
 msgstr "ارسال مجدد"
 
@@ -205,6 +206,19 @@ msgstr "کد  وارد شده صحیح نم‌باشد!"
 #: .\apps\account\views.py:162
 msgid "Reset password link sent to your email address."
 msgstr "لینک تغییر گذرواژه به آدرس ایمیل شما ارسال گردید."
+
+#: .\apps\main\templates\main\dashboard.html:5
+#: .\templates\includes\header.html:6 .\templates\includes\sidebar.html:27
+msgid "Dashboard"
+msgstr "پیشخوان"
+
+#: .\apps\main\templates\main\dashboard.html:12
+msgid "Create new"
+msgstr "ساخت رمز جدید"
+
+#: .\apps\main\templates\main\dashboard.html:22
+msgid "Check passwords quality"
+msgstr "بررسی کیفیت رمز ها"
 
 #: .\apps\main\templates\main\index.html:14
 msgid "Welcome to Capsule App"
@@ -229,6 +243,34 @@ msgstr "مدیر سایت جنگو"
 #: .\templates\admin\base_site.html:23
 msgid "Django administration"
 msgstr "مدیریت جنگو"
+
+#: .\templates\includes\header.html:14
+msgid "Search"
+msgstr "جستجو"
+
+#: .\templates\includes\sidebar.html:16
+msgid "User account"
+msgstr "حساب کاربری"
+
+#: .\templates\includes\sidebar.html:34
+msgid "Passwords"
+msgstr "رمز ها"
+
+#: .\templates\includes\sidebar.html:40
+msgid "Archives"
+msgstr "بایگانی"
+
+#: .\templates\includes\sidebar.html:46
+msgid "Settings"
+msgstr "تنظیمات"
+
+#: .\templates\includes\sidebar.html:55 .\templates\includes\sidebar.html:66
+msgid "Random password"
+msgstr "رمز تصادفی"
+
+#: .\templates\includes\sidebar.html:57
+msgid "Generate pass"
+msgstr "رمز بساز"
 
 #: .\venv\Lib\site-packages\django\contrib\messages\apps.py:15
 msgid "Messages"
