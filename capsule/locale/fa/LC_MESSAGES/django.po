@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-07 13:48+0330\n"
+"POT-Creation-Date: 2023-09-10 13:53+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -38,7 +38,8 @@ msgstr "حساب ها"
 msgid "Mobile number or email address"
 msgstr "شماره موبایل یا ایمیل"
 
-#: .\apps\account\forms.py:18
+#: .\apps\account\forms.py:18 .\apps\console\models.py:18
+#: .\apps\console\models.py:30
 msgid "Password"
 msgstr "گذرواژه"
 
@@ -107,7 +108,7 @@ msgstr "نشانی ایمیل"
 msgid "Mobile number"
 msgstr "شماره موبایل"
 
-#: .\apps\account\models.py:14
+#: .\apps\account\models.py:14 .\apps\console\models.py:21
 msgid "Name"
 msgstr "نام"
 
@@ -115,7 +116,8 @@ msgstr "نام"
 msgid "Is_verify"
 msgstr "تایید شده"
 
-#: .\apps\account\models.py:28
+#: .\apps\account\models.py:28 .\apps\console\models.py:14
+#: .\apps\console\models.py:45
 msgid "User"
 msgstr "کاربر"
 
@@ -144,9 +146,8 @@ msgstr "ورود"
 #: .\apps\account\templates\account\password_reset_complete.html:13
 #: .\apps\account\templates\account\password_reset_confirm.html:24
 #: .\apps\account\templates\account\register.html:32
-#: .\apps\account\templates\account\verification.html:28
-#: .\apps\main\templates\main\index.html:9 .\capsule\urls.py:19
-#: .\templates\includes\sidebar.html:11
+#: .\apps\account\templates\account\verification.html:28 .\capsule\urls.py:20
+#: .\templates\includes\sidebar.html:8 .\templates\includes\sidebar.html:11
 msgid "Capsule"
 msgstr "کپسول"
 
@@ -195,44 +196,208 @@ msgstr "تایید"
 msgid "Resend"
 msgstr "ارسال مجدد"
 
-#: .\apps\account\views.py:85 .\apps\account\views.py:98
+#: .\apps\account\views.py:91 .\apps\account\views.py:104
 msgid "Code has bean expired! Please try again."
 msgstr "کد منتقضی شده است! لطفاً مجدد امتحان کنید."
 
-#: .\apps\account\views.py:88
+#: .\apps\account\views.py:94
 msgid "Entered code is not correct!"
 msgstr "کد  وارد شده صحیح نم‌باشد!"
 
-#: .\apps\account\views.py:162
+#: .\apps\account\views.py:170
 msgid "Reset password link sent to your email address."
 msgstr "لینک تغییر گذرواژه به آدرس ایمیل شما ارسال گردید."
 
-#: .\apps\main\templates\main\dashboard.html:5
-#: .\templates\includes\header.html:6 .\templates\includes\sidebar.html:27
-msgid "Dashboard"
-msgstr "پیشخوان"
+#: .\apps\console\apps.py:8
+msgid "Console"
+msgstr ""
 
-#: .\apps\main\templates\main\dashboard.html:12
+#: .\apps\console\enums.py:7 .\apps\console\templates\console\archives.html:48
+#: .\apps\console\templates\console\passwords.html:53
+msgid "Hard"
+msgstr "سخت"
+
+#: .\apps\console\enums.py:8 .\apps\console\templates\console\archives.html:52
+#: .\apps\console\templates\console\passwords.html:57
+msgid "Good"
+msgstr "خوب"
+
+#: .\apps\console\enums.py:9 .\apps\console\templates\console\archives.html:56
+#: .\apps\console\templates\console\passwords.html:61
+msgid "Weak"
+msgstr "ضعیف"
+
+#: .\apps\console\enums.py:14
+msgid "Email"
+msgstr "ایمیل"
+
+#: .\apps\console\enums.py:15
+msgid "Phone"
+msgstr "تلفن"
+
+#: .\apps\console\forms.py:16
+msgid "Capsule digital market"
+msgstr "فروشگاه اینترنتی کپسول"
+
+#: .\apps\console\models.py:15
+msgid "Title"
+msgstr "عنوان"
+
+#: .\apps\console\models.py:16
+msgid "Website address"
+msgstr "آدرس ایمیل"
+
+#: .\apps\console\models.py:17
+msgid "Username"
+msgstr "نام کاربری"
+
+#: .\apps\console\models.py:19
+msgid "Difficulty"
+msgstr "سختی"
+
+#: .\apps\console\models.py:20
+msgid "Username type"
+msgstr "نوع نام کاربری"
+
+#: .\apps\console\models.py:22
+msgid "Melli code"
+msgstr "کد ملی"
+
+#: .\apps\console\models.py:24 .\apps\console\models.py:52
+msgid "Is archived"
+msgstr "بایگانی شده"
+
+#: .\apps\console\models.py:26 .\apps\console\models.py:54
+msgid "Creation time"
+msgstr "تاریخ ایجاد"
+
+#: .\apps\console\models.py:27 .\apps\console\models.py:55
+msgid "Update time"
+msgstr "تاریخ ویرایش"
+
+#: .\apps\console\models.py:31
+#: .\apps\console\templates\console\passwords.html:12
+#: .\templates\includes\sidebar.html:42 .\templates\includes\sidebar.html:46
+#: .\templates\includes\sidebar.html:48
+msgid "Passwords"
+msgstr "رمز ها"
+
+#: .\apps\console\models.py:46
+msgid "Bank"
+msgstr "بانک"
+
+#: .\apps\console\models.py:47
+msgid "Card number"
+msgstr "شماره کارت"
+
+#: .\apps\console\models.py:48
+msgid "cvv2"
+msgstr "کد اعتبار سنجی"
+
+#: .\apps\console\models.py:49
+msgid "Expire month"
+msgstr "ماه انقضا"
+
+#: .\apps\console\models.py:50
+msgid "Expire year"
+msgstr "سال انقضا"
+
+#: .\apps\console\models.py:58
+msgid "Card"
+msgstr "کارت"
+
+#: .\apps\console\models.py:59 .\apps\console\templates\console\cards.html:13
+#: .\templates\includes\sidebar.html:56 .\templates\includes\sidebar.html:60
+#: .\templates\includes\sidebar.html:62
+msgid "Cards"
+msgstr "کارت ها"
+
+#: .\apps\console\templates\console\archives.html:6
+#: .\apps\console\templates\console\cards.html:7
+#: .\apps\console\templates\console\dashboard.html:5
+#: .\apps\console\templates\console\object_confirm_delete.html:5
+#: .\apps\console\templates\console\passwords.html:6
+msgid "Capsule dashboard"
+msgstr "پیشخوان کپسول"
+
+#: .\apps\console\templates\console\archives.html:12
+msgid "Archived"
+msgstr "بایگانی شده"
+
+#: .\apps\console\templates\console\archives.html:22
+#: .\apps\console\templates\console\archives.html:65
+#: .\apps\console\templates\console\cards.html:28
+#: .\apps\console\templates\console\passwords.html:27
+msgid "Add to archive"
+msgstr "افزودن به بایگانی"
+
+#: .\apps\console\templates\console\archives.html:34
+#: .\apps\console\templates\console\archives.html:75
+#: .\apps\console\templates\console\cards.html:38
+#: .\apps\console\templates\console\passwords.html:39
+msgid "No title"
+msgstr "بدون عنوان"
+
+#: .\apps\console\templates\console\card_form.html:6
+#: .\apps\console\templates\console\card_form.html:13
+msgid "Add new card"
+msgstr "افزودن کارت جدید"
+
+#: .\apps\console\templates\console\card_form.html:69
+#: .\apps\console\templates\console\pass_form.html:93
+msgid "Save"
+msgstr "ذخیره"
+
+#: .\apps\console\templates\console\card_form.html:71
+#: .\apps\console\templates\console\pass_form.html:95
+#: .\venv\Lib\site-packages\django\forms\formsets.py:499
+msgid "Delete"
+msgstr "حذف"
+
+#: .\apps\console\templates\console\cards.html:14
+msgid "Add"
+msgstr "اضافه کردن"
+
+#: .\apps\console\templates\console\dashboard.html:12
+#: .\apps\console\templates\console\dashboard.html:39
+msgid "Add new"
+msgstr "افزودن رمز جدید"
+
+#: .\apps\console\templates\console\dashboard.html:22
+msgid "Check passwords quality"
+msgstr "بررسی کیفیت رمز ها"
+
+#: .\apps\console\templates\console\object_confirm_delete.html:12
+#: .\apps\console\templates\console\pass_form.html:5
+#: .\apps\console\templates\console\pass_form.html:12
+msgid "Add new password"
+msgstr "افزودن رمز جدید"
+
+#: .\apps\console\templates\console\passwords.html:13
 msgid "Create new"
 msgstr "ساخت رمز جدید"
 
-#: .\apps\main\templates\main\dashboard.html:22
-msgid "Check passwords quality"
-msgstr "بررسی کیفیت رمز ها"
+#: .\apps\console\templates\console\passwords.html:15
+msgid "New"
+msgstr "جدید"
+
+#: .\apps\main\templates\main\index.html:9
+msgid "Capsule | Password manager"
+msgstr "مدیریت رمز کپسول"
 
 #: .\apps\main\templates\main\index.html:14
 msgid "Welcome to Capsule App"
 msgstr "به اپلیکیشن کپسول خوش آمدید"
 
-#: .\capsule\settings.py:132
+#: .\capsule\settings.py:133
 msgid "Persian"
 msgstr "فارسی"
 
-#: .\capsule\urls.py:17
+#: .\capsule\urls.py:18
 msgid "Site Management"
 msgstr "مدیریت وبسایت"
 
-#: .\capsule\urls.py:18
+#: .\capsule\urls.py:19
 msgid "Management Panel"
 msgstr "پنل مدیریت"
 
@@ -244,31 +409,37 @@ msgstr "مدیر سایت جنگو"
 msgid "Django administration"
 msgstr "مدیریت جنگو"
 
-#: .\templates\includes\header.html:14
+#: .\templates\includes\header.html:6 .\templates\includes\sidebar.html:28
+#: .\templates\includes\sidebar.html:32 .\templates\includes\sidebar.html:34
+msgid "Dashboard"
+msgstr "پیشخوان"
+
+#: .\templates\includes\header.html:13 .\templates\includes\header.html:17
 msgid "Search"
 msgstr "جستجو"
+
+#: .\templates\includes\header.html:21
+msgid "Notifications"
+msgstr "اعلان ها"
 
 #: .\templates\includes\sidebar.html:16
 msgid "User account"
 msgstr "حساب کاربری"
 
-#: .\templates\includes\sidebar.html:34
-msgid "Passwords"
-msgstr "رمز ها"
-
-#: .\templates\includes\sidebar.html:40
+#: .\templates\includes\sidebar.html:70 .\templates\includes\sidebar.html:74
+#: .\templates\includes\sidebar.html:76
 msgid "Archives"
 msgstr "بایگانی"
 
-#: .\templates\includes\sidebar.html:46
-msgid "Settings"
-msgstr "تنظیمات"
+#: .\templates\includes\sidebar.html:83
+msgid "Exit"
+msgstr "خروج"
 
-#: .\templates\includes\sidebar.html:55 .\templates\includes\sidebar.html:66
+#: .\templates\includes\sidebar.html:92 .\templates\includes\sidebar.html:103
 msgid "Random password"
 msgstr "رمز تصادفی"
 
-#: .\templates\includes\sidebar.html:57
+#: .\templates\includes\sidebar.html:94
 msgid "Generate pass"
 msgstr "رمز بساز"
 
@@ -842,10 +1013,6 @@ msgstr[1] ""
 #: .\venv\Lib\site-packages\django\forms\formsets.py:491
 msgid "Order"
 msgstr "مرتب"
-
-#: .\venv\Lib\site-packages\django\forms\formsets.py:499
-msgid "Delete"
-msgstr "حذف"
 
 #: .\venv\Lib\site-packages\django\forms\models.py:886
 #, python-format
@@ -1474,6 +1641,12 @@ msgstr ""
 #: .\venv\Lib\site-packages\django\views\templates\default_urlconf.html:248
 msgid "Connect, get help, or contribute"
 msgstr ""
+
+#~ msgid "Settings"
+#~ msgstr "تنظیمات"
+
+#~ msgid "Add new data"
+#~ msgstr "افزودن داده جدید"
 
 #~ msgid "Please check 'Spams' if didn't find it"
 #~ msgstr "اگر آنرا نیافتید 'اسپم‌ها' را بررسی کنید"

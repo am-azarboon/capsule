@@ -5,7 +5,7 @@
     <div>
         <div class="lg:bg-gray-300 bg-gray-400 flex flex-col rounded-bl-[40px] gap-8 pt-12 pb-8 lg:pr-14 pr-6 pl-5">
             <section class="flex flex-row justify-between pr-1">
-                <a href="#">
+                <a href="{% url "main:main" %}" title="{% translate "Capsule" %}">
                     <div class="flex flex-row gap-3">
                         <img src="{% static "img/pill.png" %}" alt="Capsule" width="36" height="36">
                         <h3 class="font-iransans-extrablack text-3xl text-gray-700">{% translate "Capsule" %}</h3>
@@ -22,28 +22,65 @@
         </div>
         <ul class="flex flex-col gap-4 pt-12 pb-8 lg:pr-14 pr-6">
             <li>
-                <a class="lg:text-slate-800 text-slate-600 flex flex-row items-center gap-8" href="#">
-                    <i class="bi bi-house bg-slate-300 rounded-lg px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 1px;"></i>
-                    <h4 class="font-bold">{% translate "Dashboard" %}</h4>
-                    <i class="bi bi-caret-left-fill"></i>
-                </a>
+                {% if request.resolver_match.url_name == "dashboard" %}
+                    <a href="{% url "console:dashboard" %}" class="lg:text-slate-800 text-slate-600 flex flex-row items-center gap-8">
+                        <i class="bi bi-house-fill bg-slate-300 rounded-lg px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 0.5pt;"></i>
+                        <h4 class="font-bold">{% translate "Dashboard" %}</h4>
+                        <i class="bi bi-caret-left-fill"></i>
+                    </a>
+                {% else %}
+                    <a href="{% url "console:dashboard" %}" title="{% translate "Dashboard" %}" class="text-gray-400 hover:text-slate-600 flex flex-row items-center gap-8">
+                        <i class="bi bi-house rounded-lg px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 1px;"></i>
+                        <h4 class="font-bold">{% translate "Dashboard" %}</h4>
+                    </a>
+                {% endif %}
             </li>
             <li>
-                <a class="text-gray-400 hover:text-slate-600 flex flex-row items-center gap-8" href="#">
-                    <i class="bi bi-shield-lock rounded-lg mt-1 px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 0.7px;"></i>
-                    <h4 class="font-bold">{% translate "Passwords" %}</h4>
-                </a>
+                {% if request.resolver_match.url_name == "passwords" or request.resolver_match.url_name == "add-pass" or request.resolver_match.url_name == "edit-pass" or request.resolver_match.url_name == "del-pass" %}
+                    <a href="{% url "console:passwords" %}" class="lg:text-slate-800 text-slate-600 flex flex-row items-center gap-8">
+                        <i class="bi bi-shield-lock-fill bg-slate-300 rounded-lg px-2.5 pt-2 pb-1 mt-1"></i>
+                        <h4 class="font-bold">{% translate "Passwords" %}</h4>
+                        <i class="bi bi-caret-left-fill"></i>
+                    </a>
+                {% else %}
+                    <a href="{% url "console:passwords" %}" title="{% translate "Passwords" %}" class="text-gray-400 hover:text-slate-600 flex flex-row items-center gap-8">
+                        <i class="bi bi-shield-lock rounded-lg mt-1 px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 0.6pt;"></i>
+                        <h4 class="font-bold">{% translate "Passwords" %}</h4>
+                    </a>
+                {% endif %}
             </li>
             <li>
-                <a class="text-gray-400 hover:text-slate-600 flex flex-row items-center gap-8" href="#">
-                    <i class="bi bi-bookmark rounded-lg px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 1px;"></i>
-                    <h4 class="font-bold">{% translate "Archives" %}</h4>
-                </a>
+                {% if request.resolver_match.url_name == "cards" or request.resolver_match.url_name == "add-card" or request.resolver_match.url_name == "edit-card" or request.resolver_match.url_name == "del-card" %}
+                    <a href="{% url "console:cards" %}" class="lg:text-slate-800 text-slate-600 flex flex-row items-center gap-8">
+                        <i class="bi bi-credit-card-fill bg-slate-300 rounded-lg px-2.5 pt-2 pb-1 mt-1" style="-webkit-text-stroke: 0.5pt;"></i>
+                        <h4 class="font-bold">{% translate "Cards" %}</h4>
+                        <i class="bi bi-caret-left-fill"></i>
+                    </a>
+                {% else %}
+                    <a href="{% url "console:cards" %}" title="{% translate "Cards" %}" class="text-gray-400 hover:text-slate-600 flex flex-row items-center gap-8">
+                        <i class="bi bi-credit-card rounded-lg mt-1 px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 0.45pt;"></i>
+                        <h4 class="font-bold">{% translate "Cards" %}</h4>
+                    </a>
+                {% endif %}
             </li>
             <li>
-                <a class="text-gray-400 hover:text-slate-600 flex flex-row items-center gap-8" href="#">
-                    <i class="bi bi-gear rounded-lg px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 0.7px;"></i>
-                    <h4 class="font-bold">{% translate "Settings" %}</h4>
+                {% if request.resolver_match.url_name == "archives" %}
+                    <a href="{% url "console:archives" %}" class="lg:text-slate-800 text-slate-600 flex flex-row items-center gap-8">
+                        <i class="bi bi-bookmark-fill bg-slate-300 rounded-lg px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 0.7pt;"></i>
+                        <h4 class="font-bold">{% translate "Archives" %}</h4>
+                        <i class="bi bi-caret-left-fill"></i>
+                    </a>
+                {% else %}
+                    <a href="{% url "console:archives" %}" title="{% translate "Archives" %}" class="text-gray-400 hover:text-slate-600 flex flex-row items-center gap-8">
+                        <i class="bi bi-bookmark rounded-lg px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 0.8pt;"></i>
+                        <h4 class="font-bold">{% translate "Archives" %}</h4>
+                    </a>
+                {% endif %}
+            </li>
+            <li>
+                <a href="{% url "account:logout" %}" title="{% translate "Exit" %}" class="text-gray-400 hover:text-slate-600 flex flex-row items-center gap-8">
+                    <i class="bi bi-door-open rounded-lg px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 0.5pt;"></i>
+                    <h4 class="font-bold">{% translate "Exit" %}</h4>
                 </a>
             </li>
         </ul>
@@ -64,7 +101,7 @@
             <a href="#" onclick="generate_pass()"
                class="bi bi-arrow-clockwise bg-slate-500 text-amber-300 text-2xl rounded-full px-2.5 pt-2 pb-0.5"
                title="{% translate "Random password" %}"></a>
-            <h5 id="pass-field" class="text-white text-sm font-bold font-nunito ltr mt-0.5">Wa*5@sTbr89</h5>
+            <h5 id="pass-field" class="text-white text-sm font-bold font-nunito ltr mt-0.5"></h5>
         </div>
     </div>
 </nav>

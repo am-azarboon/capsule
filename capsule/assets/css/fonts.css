@@ -1,0 +1,140 @@
+@font-face {
+  font-family: IRANSansThin;
+
+  font-style: normal;
+
+  font-weight: 100;
+
+  src: url('../fonts/iransans/fonts/woff/IRANSansX-Thin.woff') format('woff'),
+	url('../fonts/iransans/fonts/woff2/IRANSansX-Thin.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: IRANSansUltraLight;
+
+  font-style: normal;
+
+  font-weight: 200;
+
+  src: url('../fonts/iransans/fonts/woff/IRANSansX-UltraLight.woff') format('woff'),
+	url('../fonts/iransans/fonts/woff2/IRANSansX-UltraLight.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: IRANSansLight;
+
+  font-style: normal;
+
+  font-weight: 300;
+
+  src: url('../fonts/iransans/fonts/woff/IRANSansX-Light.woff') format('woff'),
+	url('../fonts/iransans/fonts/woff2/IRANSansX-Light.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: IRANSansMedium;
+
+  font-style: normal;
+
+  font-weight: 500;
+
+  src: url('../fonts/iransans/fonts/woff/IRANSansX-Medium.woff') format('woff'),
+	url('../fonts/iransans/fonts/woff2/IRANSansX-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: IRANSansSemiBold;
+
+  font-style: normal;
+
+  font-weight: 600;
+
+  src: url('../fonts/iransans/fonts/woff/IRANSansX-DemiBold.woff') format('woff'),
+	url('../fonts/iransans/fonts/woff2/IRANSansX-DemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: IRANSansBold;
+
+  font-style: normal;
+
+  font-weight: bold;
+
+  src: url('../fonts/iransans/fonts/woff/IRANSansX-Bold.woff') format('woff'),
+	url('../fonts/iransans/fonts/woff2/IRANSansX-Bold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: IRANSansExtraBold;
+
+  font-style: normal;
+
+  font-weight: 800;
+
+  src: url('../fonts/iransans/fonts/woff/IRANSansX-ExtraBold.woff') format('woff'),
+	url('../fonts/iransans/fonts/woff2/IRANSansX-ExtraBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: IRANSansBlack;
+
+  font-style: normal;
+
+  font-weight: 900;
+
+  src: url('../fonts/iransans/fonts/woff/IRANSansX-Black.woff') format('woff'),
+  url('../fonts/iransans/fonts/woff2/IRANSansX-Black.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: IRANSansExtraBlack;
+
+  font-style: normal;
+
+  font-weight: 950;
+
+  src: url('../fonts/iransans/fonts/woff/IRANSansX-ExtraBlack.woff') format('woff'),
+	url('../fonts/iransans/fonts/woff2/IRANSansX-ExtraBlack.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: IRANSansHeavy;
+
+  font-style: normal;
+
+  font-weight: 1000;
+
+  src: url('../fonts/iransans/fonts/woff/IRANSansX-Heavy.woff') format('woff'),
+	url('../fonts/iransans/fonts/woff2/IRANSansX-Heavy.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: IRANSansRegular;
+
+  font-style: normal;
+
+  font-weight: normal;
+
+  src: url('../fonts/iransans/fonts/woff/IRANSansX-Regular.woff') format('woff'),
+	url('../fonts/iransans/fonts/woff2/IRANSansX-Regular.woff2') format('woff2');
+}
+
+@font-face{
+  font-family: Vazir;
+
+  src: url('../fonts/Vazir.ttf');
+
+  font-weight: normal;
+
+  font-style: normal;
+}
+
+@font-face{
+  font-family: Samim;
+
+  src: url('../fonts/samim.ttf');
+
+  font-weight: normal;
+
+  font-style: normal;
+}

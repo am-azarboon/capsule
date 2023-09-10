@@ -6,7 +6,7 @@ class LogoutRequiredMixin:
     def dispatch(self, request, *args, **kwargs):
         """ Only unauthenticated users can access the view """
         if request.user.is_authenticated:
-            return redirect("main:main")
+            return redirect("console:dashboard")
 
         return super().dispatch(request, *args, **kwargs)
 

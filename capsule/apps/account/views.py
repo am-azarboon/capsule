@@ -18,15 +18,17 @@ import json
 class LoginView(LogoutRequiredMixin, FormView):
     template_name = "account/login.html"
     form_class = forms.LoginForm
-    success_url = reverse_lazy("main:main")
+    success_url = reverse_lazy("console:dashboard")
 
     def get_success_url(self):
         """ Change success url based on 'next' parameter """
+
         next_url = self.request.GET.get("next")
         return next_url if next_url else super().get_success_url()
 
     def form_valid(self, form):
         """ Get authenticated user and login """
+
         user = form.cleaned_data.get("user")
         login(self.request, user)
         return super().form_valid(form)
@@ -40,11 +42,13 @@ class RegisterView(LogoutRequiredMixin, FormView):
 
     def dispatch(self, request, *args, **kwargs):
         """ Do something before generating form class (here is flush sessions) """
+
         self.request.session.flush()
         return super().dispatch(request, *args, **kwargs)
 
     def form_valid(self, form):
-        """ Get created user and redirect to email verification page """
+        """ Get created user and create a new code and send it through email, then save data in sessions """
+
         user = form.cleaned_data.get("user")
 
         # Create new verification message
@@ -67,15 +71,17 @@ class RegisterView(LogoutRequiredMixin, FormView):
 class VerifyEmailView(LogoutRequiredMixin, VerifyPreviousUrlMixin, FormView):
     template_name = "account/verification.html"
     form_class = forms.EmailVerifyForm
-    success_url = reverse_lazy("main:main")
+    success_url = reverse_lazy("console:dashboard")
 
     def get_success_url(self):
         """ Change success url based on ?next parameter """
+
         next_url = self.request.GET.get("next")
         return next_url if next_url else super().get_success_url()
 
     def form_valid(self, form):
         """ Get user & sent code in sessions and compare them. then login user """
+
         session = self.request.session
 
         user_code = form.cleaned_data.get("code")
@@ -107,7 +113,7 @@ class VerifyEmailView(LogoutRequiredMixin, VerifyPreviousUrlMixin, FormView):
         return super().form_valid(form)
 
 
-# Resend VerifyCode View
+# Resend Verify Code View
 class ResendCodeView(LogoutRequiredMixin, View):
     def post(self, request):
         response = json.loads(request.body)
@@ -144,6 +150,8 @@ class PasswordResetView(LogoutRequiredMixin, FormView):
     success_url = reverse_lazy("account:password-reset")
 
     def form_valid(self, form):
+        """ Get generated password token and sent it with an email message, then show a success message to user. """
+
         password_token = form.cleaned_data.get("password_token")
 
         # Build absolute url for password confirm page
@@ -163,7 +171,7 @@ class PasswordResetView(LogoutRequiredMixin, FormView):
         return super().form_valid(form)
 
 
-# PasswordResetConfirm View
+# Render PasswordResetConfirm View
 class PasswordResetConfirmView(LogoutRequiredMixin, FormView):
     template_name = "account/password_reset_confirm.html"
     form_class = forms.PasswordResetConfirmForm
@@ -171,8 +179,8 @@ class PasswordResetConfirmView(LogoutRequiredMixin, FormView):
 
     def dispatch(self, request, *args, **kwargs):
         """ Check token validation before create form. Raise 404 error if token expired """
-        token = request.GET.get("token")
 
+        token = request.GET.get("token")
         try:
             password_token = PasswordResetToken.objects.get(token=token)
             if password_token.expired_at < timezone.now():
@@ -187,7 +195,6 @@ class PasswordResetConfirmView(LogoutRequiredMixin, FormView):
 
         password = form.cleaned_data.get("password")
         token = self.request.GET.get("token")
-
         try:
             password_token = PasswordResetToken.objects.get(token=token)
             user = password_token.user

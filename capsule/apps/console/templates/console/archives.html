@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load filters %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Capsule dashboard" %}{% endblock %}
+
+{% block content %}
+    <main class="sm:px-20 mt-12 px-4">
+        <section>
+            <div class="flex flex-row items-center gap-4">
+                <h2 class="text-slate-700 sm:text-xl text-lg font-bold text-right">{% translate "Archived" %}</h2>
+            </div>
+        </section>
+
+        <section class="mt-8 pb-2">
+            <ul class="w-full flex flex-col gap-4">
+                {% for object in object_list %}
+                    {% if object.password %}
+                        <li id="archive-object-{{ object.pk }}" class="w-full flex items-center gap-1">
+                            <button class="bi bi-bookmark-fill text-slate-500 hover:text-slate-800 text-xl rounded-lg px-2 pt-1"
+                                    title="{% translate "Add to archive" %}" style="-webkit-text-stroke: 0.8pt;" type="button"
+                                    onclick="archive(event, {{ object.pk }})">
+                            </button>
+                            <a href="{% url "console:edit-pass" object.pk %}"
+                               class="w-full flex flex-row items-center justify-between gap-2 rounded-lg py-2 px-3 bg-gray-200 hover:bg-gray-300 focus:bg-gray-300 hover:shadow-md">
+                                <div class="flex flex-row sm:gap-6 gap-2 flex-wrap items-center text-slate-700">
+                                    <h4 class="text-base text-right font-bold min-w-[15ch] whitespace-normal">
+                                        {% if object.address %}
+                                            {{ object.address }}
+                                        {% elif object.title %}
+                                            {{ object.title }}
+                                        {% else %}
+                                            {% translate "No title" %}
+                                        {% endif %}
+                                    </h4>
+                                    <h4 class="text-sm ltr lg:max-w-[30ch] sm:max-w-[27] max-w-[20ch] overflow-hidden text-ellipsis whitespace-nowrap">
+                                        {% if object.type == "p" %}
+                                            {{ object.username|split_phone }}
+                                        {% else %}
+                                            {{ object.username }}
+                                        {% endif %}
+                                    </h4>
+                                </div>
+                                <div class="flex items-center">
+                                    {% if object.difficulty == "h" %}
+                                        <i class="bi bi-shield-check text-slate-100 bg-blue-700 text-xl rounded-lg px-1.5 pt-1"
+                                            style="-webkit-text-stroke: 0.3pt;" title="{% translate "Hard" %}">
+                                        </i>
+                                    {% elif object.difficulty == "g" %}
+                                        <i class="bi bi-shield text-slate-100 bg-emerald-700 text-xl rounded-lg px-1.5 pt-1"
+                                            style="-webkit-text-stroke: 0.3pt;" title="{% translate "Good" %}">
+                                        </i>
+                                    {% else %}
+                                        <i class="bi bi-shield-exclamation text-slate-100 bg-red-700 text-xl rounded-lg px-1.5 pt-1"
+                                            style="-webkit-text-stroke: 0.3pt;" title="{% translate "Weak" %}">
+                                        </i>
+                                    {% endif %}
+                                </div>
+                            </a>
+                        </li>
+                    {% else %}
+                        <li id="archive-object-{{ object.pk }}" class="w-full flex items-center gap-1">
+                            <button class="bi bi-bookmark-fill text-slate-500 hover:text-slate-800 text-xl rounded-lg px-2 pt-1"
+                                    title="{% translate "Add to archive" %}" style="-webkit-text-stroke: 0.8pt;" type="button"
+                                    onclick="archive(event, {{ object.pk }})">
+                            </button>
+                            <a href="{% url "console:edit-card" object.pk %}"
+                               class="w-full flex flex-row items-center justify-between gap-2 rounded-lg py-2 px-3 bg-gray-200 hover:bg-gray-300 focus:bg-gray-300 hover:shadow-md">
+                                <div class="flex flex-row sm:gap-6 gap-2 flex-wrap items-center text-slate-700">
+                                    <h4 class="text-base text-right font-bold min-w-[15ch] whitespace-normal">
+                                        {% if object.bank %}
+                                            {{ object.bank }}
+                                        {% else %}
+                                            {% translate "No title" %}
+                                        {% endif %}
+                                    </h4>
+                                    <h4 class="text-sm ltr lg:max-w-[30ch] sm:max-w-[27] max-w-[20ch] overflow-hidden text-ellipsis whitespace-nowrap ss01">
+                                        {{ object.c_number|split_card }}
+                                    </h4>
+                                </div>
+                                <div class="flex items-center">
+                                    <i class="bi bi-credit-card text-white bg-emerald-700 text-xl rounded-lg px-1.5 pt-1"></i>
+                                </div>
+                            </a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+{% endblock %}

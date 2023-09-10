@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Capsule dashboard" %}{% endblock %}
+
+{% block content %}
+    <main class="sm:px-20 mt-12 px-4">
+        <!-- Start Recently added sections -->
+        <div class="pb-4 md:mt-12 mt-8">
+            <section>
+                <h2 class="text-slate-700 sm:text-xl text-lg font-iransans-extrabold text-right">{% translate "Add new password" %}</h2>
+            </section>
+
+            <section class="w-full mt-8 border-2 border-gray-300 rounded-xl p-4">
+                <div class="flex justify-center md:my-10 my-4">
+                    <form method="POST" class="bg-slate-700 flex flex-col gap-6 items-center text-base rounded-xl px-5 py-6">
+                        {% csrf_token %}
+                        <P class="text-white text-center font-iransans-bold">آیا از حذف این اطلاعات مطمئن هستید؟</P>
+                        <span class="flex gap-2 items-center font-iransans-bold">
+                            <button type="submit" class="bg-emerald-700 text-white hover:bg-emerald-600 focus:bg-emerald-600 rounded-lg px-4 py-1">بله</button>
+                            <a href="{% url "console:edit-pass" object.pk %}" class="bg-red-700 text-white hover:bg-red-600 focus:bg-red-600 rounded-lg px-3.5 py-1">خیر</a>
+                        </span>
+                    </form>
+                </div>
+            </section>
+        </div>
+    </main>
+{% endblock %}

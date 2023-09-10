@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% load filters %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Capsule dashboard" %}{% endblock %}
+
+{% block content %}
+    <main class=" sm:px-20 md:pt-12 pt-8 px-4">
+        <!-- Start Cards section -->
+        <div class="flex flex-row flex-wrap justify-center gap-6">
+            <section class="bg-gray-300 min-w-[17rem] flex-grow rounded-3xl shadow-md add-section">
+                <a href="{% url "console:add-pass" %}" title="{% translate "Add new" %}" class="flex flex-col items-start gap-10 px-10 py-6">
+                    <i class="bi bi-shield-lock bg-slate-700 text-slate-100 text-3xl rounded-xl px-3 pt-3 pb-1.5"
+                       style="-webkit-text-stroke: 0.4pt;"></i>
+                    <h4 class="text-slate-700 text-right text-lg font-bold">
+                        اضافه کردن رمز عبور جدید
+                    </h4>
+                </a>
+            </section>
+
+            <section class="min-w-[17rem] flex-grow rounded-3xl border-2 border-slate-400 shadow-md quality-section">
+                <a class="flex flex-col items-start gap-10 px-10 py-6" title="{% translate "Check passwords quality" %}">
+                    <h2 class="bg-slate-700 text-slate-100 w-14 h-14 flex items-center justify-center text-xl rounded-full ltr ss01"
+                        style="-webkit-text-stroke: 0.3pt;">
+                        {{ quality }}%
+                    </h2>
+                    <h4 class="text-slate-700 text-right text-lg font-bold">
+                        میانگین کیفیت رمزهای شما
+                    </h4>
+                </a>
+            </section>
+        </div>
+
+        <!-- Start Recently added sections -->
+        <div class="pb-4 md:mt-12 mt-8">
+            <section>
+                <div class="flex flex-row justify-between items-center gap-4">
+                    <h2 class="text-slate-700 sm:text-xl text-lg font-bold text-right">آخرین اضافه شده ها</h2>
+                    <a href="{% url "console:add-pass" %}" title="{% translate "Add new" %}">
+                        <span class="bg-slate-700 text-slate-100 rounded-full flex items-center gap-1 sm:py-1 sm:px-3 py-0.5 px-2">
+                            <span class="sm:text-base text-xs font-bold">جدید</span>
+                            <i class="bi bi-plus text-amber-300 mt-1" style="-webkit-text-stroke: 0.7pt;"></i>
+                        </span>
+                    </a>
+                </div>
+            </section>
+
+            <section class="md:mt-8 mt-6">
+                <ul class="w-full flex flex-col justify-center gap-8">
+                    {% for object in object_list %}
+                        {% if object.password %}
+                            <li class="w-full flex flex-row items-center justify-between gap-4">
+                                <div class="flex flex-row gap-4 items-center">
+                                    <i class="bi {% if object.type == "e" %}bi-envelope-at{% else %}bi-telephone{% endif %} bg-slate-300 text-2xl text-center rounded-lg pt-1.5 pb-0.5 px-2"
+                                       style="-webkit-text-stroke: 0.4pt;"></i>
+                                    <span class="flex flex-col items-start justify-center gap-1">
+                                        <span class="text-slate-700 text-sm text-right whitespace-normal">
+                                            {% if object.title %}
+                                                {{ object.title }}
+                                            {% else %}
+                                                {% translate "No title" %}
+                                            {% endif %}
+                                        </span>
+                                        <span class="text-slate-400 text-xs sm:max-w-[30ch] max-w-[18ch] overflow-hidden text-ellipsis whitespace-nowrap ltr ss01">
+                                            {% if object.username %}
+                                                {% if object.type == "p" %}{{ object.username|split_phone|hidden_phone }}{% else %}{{ object.username }}{% endif %}
+                                            {% else %}
+                                                {% translate "No title" %}
+                                            {% endif %}
+                                        </span>
+                                    </span>
+                                    <a href="{% url "console:edit-pass" object.pk %}" class="text-slate-700 hover:bg-slate-300 focus:bg-slate-300 rounded-xl px-2 pt-1 mr-4"
+                                       title="ویرایش">
+                                        <i class="bi bi-three-dots text-xl" style="-webkit-text-stroke: 1px;"></i>
+                                    </a>
+                                </div>
+                                {% if object.difficulty == "h" %}
+                                     <i class="bi bi-shield-check text-slate-100 bg-blue-700 text-xl rounded-lg px-1.5 pt-1"
+                                        style="-webkit-text-stroke: 0.3pt;" title="{% translate "Hard" %}">
+                                     </i>
+                                {% elif object.difficulty == "g" %}
+                                    <i class="bi bi-shield text-slate-100 bg-emerald-700 text-xl rounded-lg px-1.5 pt-1"
+                                        style="-webkit-text-stroke: 0.3pt;" title="{% translate "Good" %}">
+                                    </i>
+                                {% else %}
+                                    <i class="bi bi-shield-exclamation text-slate-100 bg-red-700 text-xl rounded-lg px-1.5 pt-1"
+                                        style="-webkit-text-stroke: 0.3pt;" title="{% translate "Weak" %}">
+                                    </i>
+                                {% endif %}
+                            </li>
+                        {% else %}
+                            <li class="flex flex-row items-center justify-between">
+                                <div class="flex flex-row gap-4 items-center">
+                                    <i class="bi bi-credit-card bg-slate-300 text-2xl text-center rounded-lg pt-1.5 pb-0.5 px-2"
+                                       style="-webkit-text-stroke: 0.4pt;"></i>
+                                    <span class="flex flex-col items-start justify-center gap-1">
+                                        <span class="text-slate-700 text-sm">
+                                            {% if object.bank %}
+                                                {{ object.bank }}
+                                            {% else %}
+                                                {% translate "No title" %}
+                                            {% endif %}
+                                        </span>
+                                        <span class="text-slate-400 text-xs ltr ss01">
+                                            {{ object.c_number|split_card|hidden_card }}
+                                        </span>
+                                    </span>
+                                    <a href="{% url "console:edit-card" object.pk %}" class="text-slate-700 hover:bg-slate-300 focus:bg-slate-300 rounded-xl px-2 pt-1 mr-4"
+                                       title="ویرایش">
+                                        <i class="bi bi-three-dots text-slate-700 text-xl" style="-webkit-text-stroke: 1px;"></i>
+                                    </a>
+                                </div>
+                                <i class="bi bi-credit-card text-white bg-emerald-700 text-xl rounded-lg px-1.5 pt-1"></i>
+                            </li>
+                        {% endif %}
+                    {% endfor %}
+                </ul>
+            </section>
+        </div>
+    </main>
+{% endblock %}

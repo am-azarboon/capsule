@@ -1,0 +1,102 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Add new password" %}{% endblock %}
+
+{% block content %}
+    <main class="sm:px-20 mt-12 px-4">
+        <!-- Start Recently added sections -->
+        <div class="pb-4 md:mt-12 mt-8">
+            <section>
+                <h2 class="text-slate-700 sm:text-xl text-lg font-iransans-extrabold text-right">{% translate "Add new password" %}</h2>
+            </section>
+
+            <section id="form-section" class="w-full mt-8 border-2 border-gray-300 rounded-xl p-4">
+                <!-- Start user account form -->
+                <form action="" method="POST" id="form" class="flex flex-col gap-4 text-slate-700">
+                    {% csrf_token %}
+                    <label for="type" class="lg:w-1/4 sm:w-1/3 w-2/3 flex flex-col gap-2">
+                        <span class="font-iransans-semibold px-1">
+                            نوع
+                        </span>
+                        <select id="type" onchange="change_form(event)"
+                                class="border-2 font-normal focus:border-gray-400 focus:outline-none focus:ring-0 rounded-lg px-2 py-0.5">
+                            <option value="account">حساب کاربری</option>
+                            <option value="card">کارت بانکی</option>
+                        </select>
+                    </label>
+
+                    <div class="w-full flex flex-wrap gap-4 mt-4">
+                        <label for="title" class="flex flex-col flex-grow gap-1">
+                            <span class="px-1">
+                                عنوان
+                                <span class="text-xs">(اختیاری)</span>
+                            </span>
+                            {{ form.title }}
+                        </label>
+                        <label for="address" class="flex flex-col flex-grow gap-1">
+                            <span class="px-1">
+                                آدرس وبسایت
+                                <span class="text-xs">(اختیاری)</span>
+                            </span>
+                            {{ form.address }}
+                        </label>
+                    </div>
+                    <div class="w-full flex flex-wrap gap-4">
+                        <label for="username" class="flex flex-col flex-grow gap-1">
+                            <span class="px-1">
+                                نام کاربری
+                                <span class="text-xs">(ایمیل، موبایل، کدملی)</span>
+                            </span>
+                            {{ form.username }}
+
+                            {% if form.username.errors %}
+                                <span class="text-xs text-red-600 text-right px-1">{{ form.username.errors }}</span>
+                            {% endif %}
+                        </label>
+                        <label for="password" class="flex flex-col flex-grow gap-1">
+                            <span class="px-1">
+                                رمز عبور
+                            </span>
+                            <span class="relative">
+                                {{ form.password }}
+                                <span class="absolute inset-y-0 left-0 flex items-center px-5 -top-2">
+                                    <button type="button" id="pass-toggle-btn"
+                                            class="bi bi-eye-fill h-4 w-4 text-xl hover:text-slate-400"></button>
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="w-full flex flex-col mt-4">
+                        <h3 class="font-bold text-lg px-1">
+                            اطلاعات تکمیلی
+                        </h3>
+                        <div class="w-full flex flex-wrap items-center gap-4 mt-4">
+                            <label for="name" class="flex flex-col flex-grow gap-1">
+                                <span class="px-1">
+                                    نام
+                                    <span class="text-xs">(در صورت نیاز)</span>
+                                </span>
+                                {{ form.name }}
+                            </label>
+                            <label for="melli-code" class="flex flex-col flex-grow gap-1">
+                                <span class="px-1">
+                                    کدملی
+                                    <span class="text-xs">(در صورت نیاز)</span>
+                                </span>
+                                {{ form.melli }}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="flex justify-end gap-4 text-slate-200 font-bold px-1 mt-1">
+                        <button type="submit" class="bg-slate-700 hover:bg-slate-500 rounded-lg px-3 py-1.5">{% translate "Save" %}</button>
+                        {% if request.resolver_match.url_name == "edit-pass" %}
+                            <a href="{% url "console:del-pass" password.pk %}" class="bg-red-700 hover:bg-red-500 rounded-lg px-3 py-1.5">{% translate "Delete" %}</a>
+                        {% endif %}
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+{% endblock %}

@@ -69,7 +69,15 @@ function generate_pass() {
 // -------------------------------------------
 
 // Add to archive button
-function archive_click(e) {
-  e.target.classList.toggle("bi-bookmark");
-  e.target.classList.toggle("bi-bookmark-fill");
+async function archive(e, pk) {
+  $.get(`/dashboard/archive/${pk}/`).then(response =>{
+      if(response["response"] === "archived"){
+          e.target.classList.toggle("bi-bookmark-fill");
+          e.target.classList.toggle("bi-bookmark");
+      }
+      else{
+          e.target.classList.toggle("bi-bookmark-fill");
+          e.target.classList.toggle("bi-bookmark");
+      }
+  })
 }

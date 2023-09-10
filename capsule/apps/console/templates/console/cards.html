@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load filters %}
+{% load static %}
+{% load i18n %}
+
+
+{% block title %}{% translate "Capsule dashboard" %}{% endblock %}
+
+{% block content %}
+    <main class="sm:px-20 mt-12 px-4">
+        <section>
+            <div class="flex flex-row justify-between items-center gap-4">
+                <h2 class="text-slate-700 sm:text-xl text-lg font-bold text-right">{% translate "Cards" %}</h2>
+                <a href="{% url "console:add-card" %}" title="{% translate "Add" %}">
+                    <span class="bg-slate-700 text-slate-100 rounded-full flex items-center gap-1 py-0.5 px-2">
+                        <span class="sm:text-base text-xs font-bold">جدید</span>
+                        <i class="bi bi-plus text-amber-300 mt-1" style="-webkit-text-stroke: 0.7pt;"></i>
+                    </span>
+                </a>
+            </div>
+        </section>
+
+        <section class="mt-8 pb-2">
+            <ul class="w-full flex flex-col gap-4">
+                {% for card in object_list %}
+                    <li class="w-full flex items-center gap-1">
+                        <button class="bi bi-bookmark text-slate-500 hover:text-slate-800 text-xl rounded-lg px-2 pt-1"
+                                title="{% translate "Add to archive" %}" style="-webkit-text-stroke: 0.8pt;" type="button"
+                                onclick="archive(event, {{ card.pk }})">
+                        </button>
+                        <a href="{% url "console:edit-card" card.pk %}"
+                           class="w-full flex flex-row items-center justify-between gap-2 rounded-lg py-2 px-3 bg-gray-200 hover:bg-gray-300 focus:bg-gray-300 hover:shadow-md">
+                            <div class="flex flex-row sm:gap-6 gap-2 flex-wrap items-center text-slate-700">
+                                <h4 class="text-base text-right font-bold min-w-[15ch] whitespace-normal">
+                                    {% if card.bank %}
+                                        {{ card.bank }}
+                                    {% else %}
+                                        {% translate "No title" %}
+                                    {% endif %}
+                                </h4>
+                                <h4 class="text-sm ltr lg:max-w-[30ch] sm:max-w-[27] max-w-[20ch] overflow-hidden text-ellipsis whitespace-nowrap ss01">
+                                    {{ card.c_number|split_card }}
+                                </h4>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="bi bi-credit-card text-white bg-emerald-700 text-xl rounded-lg px-1.5 pt-1"></i>
+                            </div>
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+{% endblock %}
