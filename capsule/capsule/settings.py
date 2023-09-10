@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     "apps.console.apps.ConsoleConfig",
 
     # Django modules
-    "rest_framework",
+    "django_jalali",
     "widget_tweaks",
     "django_cleanup",
 ]
@@ -147,7 +147,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # Media files
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = os.getenv("MEDIA_ROOT")
+MEDIA_ROOT = str(os.getenv("MEDIA_ROOT"))
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

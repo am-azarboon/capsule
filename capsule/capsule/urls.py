@@ -1,7 +1,9 @@
 from django.utils.translation import gettext as _
+from django.conf.urls.static import static
 from apps.account.views import LoginView
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
 
 
 # Base urls
@@ -12,7 +14,7 @@ urlpatterns = [
     path("", include("apps.main.urls", namespace="main")),
     path("dashboard/", include("apps.console.urls", namespace="console")),
 ]
-
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Rename site header & title & index_title
 admin.site.site_header = _("Site Management")

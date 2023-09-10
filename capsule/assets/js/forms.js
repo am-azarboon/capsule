@@ -18,6 +18,20 @@ if (document.contains(passToggleBtn)) {
     })
 }
 
+function pass_toggle(e) {
+    const password = document.getElementById("password2");
+
+    if (password.type === "password") {
+        password.type = "text";
+        e.target.classList.remove("bi-eye-fill");
+        e.target.classList.add("bi-eye-slash-fill");
+    } else {
+        password.type = "password";
+        e.target.classList.remove("bi-eye-slash-fill");
+        e.target.classList.add("bi-eye-fill");
+    }
+}
+
 // Choose card/account form
 function change_form(e) {
     if (e.target.value === "card") {

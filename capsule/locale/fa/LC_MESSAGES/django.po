@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-09-10 13:53+0330\n"
+"POT-Creation-Date: 2023-09-10 20:42+0330\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -64,6 +64,7 @@ msgid "Repeat Password*"
 msgstr "*تکرار گذرواژه"
 
 #: .\apps\account\forms.py:63 .\apps\account\forms.py:142
+#: .\apps\account\forms.py:206
 msgid "Passwords are not match!"
 msgstr "گذرواژه وارد شده یکسان نیست!"
 
@@ -84,6 +85,14 @@ msgstr "آدرس ایمیل"
 msgid "User with this email does not exists!"
 msgstr "کاربری با این ایمیل یافت نشد!"
 
+#: .\apps\account\forms.py:168 .\apps\account\models.py:14
+msgid "Mobile number"
+msgstr "شماره موبایل"
+
+#: .\apps\account\forms.py:197
+msgid "Password must be at least 8 characters."
+msgstr "رمز عبور باید حداقل ۸ کاراکتر باشد."
+
 #: .\apps\account\handlers.py:37
 msgid "Welcome to Capsule :)"
 msgstr ""
@@ -100,36 +109,44 @@ msgstr ""
 msgid "Users must have an email address"
 msgstr "کاربران باید یک ایمیل معتبر داشته باشند"
 
-#: .\apps\account\models.py:12
+#: .\apps\account\models.py:13
 msgid "Email Address"
 msgstr "نشانی ایمیل"
 
-#: .\apps\account\models.py:13
-msgid "Mobile number"
-msgstr "شماره موبایل"
-
-#: .\apps\account\models.py:14 .\apps\console\models.py:21
+#: .\apps\account\models.py:15 .\apps\console\models.py:21
 msgid "Name"
 msgstr "نام"
 
-#: .\apps\account\models.py:15
+#: .\apps\account\models.py:16
 msgid "Is_verify"
 msgstr "تایید شده"
 
-#: .\apps\account\models.py:28 .\apps\console\models.py:14
+#: .\apps\account\models.py:17 .\apps\console\models.py:22
+msgid "Melli code"
+msgstr "کد ملی"
+
+#: .\apps\account\models.py:18
+msgid "Date of birth"
+msgstr "تاریخ تولد"
+
+#: .\apps\account\models.py:19
+msgid "Profile image"
+msgstr "تصویر پروفایل"
+
+#: .\apps\account\models.py:32 .\apps\console\models.py:14
 #: .\apps\console\models.py:45
 msgid "User"
 msgstr "کاربر"
 
-#: .\apps\account\models.py:29
+#: .\apps\account\models.py:33
 msgid "Token"
 msgstr "توکن"
 
-#: .\apps\account\models.py:30
+#: .\apps\account\models.py:34
 msgid "Created at"
 msgstr "تاریخ ایجاد"
 
-#: .\apps\account\models.py:31
+#: .\apps\account\models.py:35
 msgid "Expired at"
 msgstr "تاریخ انقضا"
 
@@ -146,7 +163,7 @@ msgstr "ورود"
 #: .\apps\account\templates\account\password_reset_complete.html:13
 #: .\apps\account\templates\account\password_reset_confirm.html:24
 #: .\apps\account\templates\account\register.html:32
-#: .\apps\account\templates\account\verification.html:28 .\capsule\urls.py:20
+#: .\apps\account\templates\account\verification.html:28 .\capsule\urls.py:22
 #: .\templates\includes\sidebar.html:8 .\templates\includes\sidebar.html:11
 msgid "Capsule"
 msgstr "کپسول"
@@ -161,6 +178,20 @@ msgstr "فراموشی گذرواژه"
 #: .\apps\main\templates\main\index.html:18
 msgid "Register"
 msgstr "ثبت نام"
+
+#: .\apps\account\templates\account\password_change.html:6
+#: .\apps\account\templates\account\profile.html:6
+#: .\apps\console\templates\console\archives.html:6
+#: .\apps\console\templates\console\cards.html:7
+#: .\apps\console\templates\console\dashboard.html:6
+#: .\apps\console\templates\console\object_confirm_delete.html:5
+#: .\apps\console\templates\console\passwords.html:6
+msgid "Capsule dashboard"
+msgstr "پیشخوان کپسول"
+
+#: .\apps\account\templates\account\password_change.html:65
+msgid "Edit"
+msgstr "تغییر"
 
 #: .\apps\account\templates\account\password_reset.html:9
 #: .\apps\account\templates\account\password_reset_complete.html:9
@@ -180,6 +211,16 @@ msgstr "گذرواژه شما با موفقیت تغییر کرد. اکنون م
 msgid "Submit"
 msgstr "ارسال"
 
+#: .\apps\account\templates\account\profile.html:75
+msgid "Edit password"
+msgstr "تغییر رمز عبور"
+
+#: .\apps\account\templates\account\profile.html:76
+#: .\apps\console\templates\console\card_form.html:69
+#: .\apps\console\templates\console\pass_form.html:93
+msgid "Save"
+msgstr "ذخیره"
+
 #: .\apps\account\templates\account\verification.html:9
 msgid "Email verify"
 msgstr "تایید ایمیل"
@@ -196,33 +237,40 @@ msgstr "تایید"
 msgid "Resend"
 msgstr "ارسال مجدد"
 
-#: .\apps\account\views.py:91 .\apps\account\views.py:104
+#: .\apps\account\views.py:92 .\apps\account\views.py:105
 msgid "Code has bean expired! Please try again."
 msgstr "کد منتقضی شده است! لطفاً مجدد امتحان کنید."
 
-#: .\apps\account\views.py:94
+#: .\apps\account\views.py:95
 msgid "Entered code is not correct!"
 msgstr "کد  وارد شده صحیح نم‌باشد!"
 
-#: .\apps\account\views.py:170
+#: .\apps\account\views.py:171
 msgid "Reset password link sent to your email address."
 msgstr "لینک تغییر گذرواژه به آدرس ایمیل شما ارسال گردید."
 
+#: .\apps\account\views.py:241
+msgid "Password is not correct."
+msgstr "رمز عبور اشتباه است."
+
 #: .\apps\console\apps.py:8
 msgid "Console"
-msgstr ""
+msgstr "کنسول"
 
 #: .\apps\console\enums.py:7 .\apps\console\templates\console\archives.html:48
+#: .\apps\console\templates\console\dashboard.html:80
 #: .\apps\console\templates\console\passwords.html:53
 msgid "Hard"
 msgstr "سخت"
 
 #: .\apps\console\enums.py:8 .\apps\console\templates\console\archives.html:52
+#: .\apps\console\templates\console\dashboard.html:84
 #: .\apps\console\templates\console\passwords.html:57
 msgid "Good"
 msgstr "خوب"
 
 #: .\apps\console\enums.py:9 .\apps\console\templates\console\archives.html:56
+#: .\apps\console\templates\console\dashboard.html:88
 #: .\apps\console\templates\console\passwords.html:61
 msgid "Weak"
 msgstr "ضعیف"
@@ -259,10 +307,6 @@ msgstr "سختی"
 msgid "Username type"
 msgstr "نوع نام کاربری"
 
-#: .\apps\console\models.py:22
-msgid "Melli code"
-msgstr "کد ملی"
-
 #: .\apps\console\models.py:24 .\apps\console\models.py:52
 msgid "Is archived"
 msgstr "بایگانی شده"
@@ -277,8 +321,8 @@ msgstr "تاریخ ویرایش"
 
 #: .\apps\console\models.py:31
 #: .\apps\console\templates\console\passwords.html:12
-#: .\templates\includes\sidebar.html:42 .\templates\includes\sidebar.html:46
-#: .\templates\includes\sidebar.html:48
+#: .\templates\includes\sidebar.html:46 .\templates\includes\sidebar.html:50
+#: .\templates\includes\sidebar.html:52
 msgid "Passwords"
 msgstr "رمز ها"
 
@@ -307,18 +351,10 @@ msgid "Card"
 msgstr "کارت"
 
 #: .\apps\console\models.py:59 .\apps\console\templates\console\cards.html:13
-#: .\templates\includes\sidebar.html:56 .\templates\includes\sidebar.html:60
-#: .\templates\includes\sidebar.html:62
+#: .\templates\includes\sidebar.html:60 .\templates\includes\sidebar.html:64
+#: .\templates\includes\sidebar.html:66
 msgid "Cards"
 msgstr "کارت ها"
-
-#: .\apps\console\templates\console\archives.html:6
-#: .\apps\console\templates\console\cards.html:7
-#: .\apps\console\templates\console\dashboard.html:5
-#: .\apps\console\templates\console\object_confirm_delete.html:5
-#: .\apps\console\templates\console\passwords.html:6
-msgid "Capsule dashboard"
-msgstr "پیشخوان کپسول"
 
 #: .\apps\console\templates\console\archives.html:12
 msgid "Archived"
@@ -334,6 +370,9 @@ msgstr "افزودن به بایگانی"
 #: .\apps\console\templates\console\archives.html:34
 #: .\apps\console\templates\console\archives.html:75
 #: .\apps\console\templates\console\cards.html:38
+#: .\apps\console\templates\console\dashboard.html:62
+#: .\apps\console\templates\console\dashboard.html:69
+#: .\apps\console\templates\console\dashboard.html:102
 #: .\apps\console\templates\console\passwords.html:39
 msgid "No title"
 msgstr "بدون عنوان"
@@ -342,11 +381,6 @@ msgstr "بدون عنوان"
 #: .\apps\console\templates\console\card_form.html:13
 msgid "Add new card"
 msgstr "افزودن کارت جدید"
-
-#: .\apps\console\templates\console\card_form.html:69
-#: .\apps\console\templates\console\pass_form.html:93
-msgid "Save"
-msgstr "ذخیره"
 
 #: .\apps\console\templates\console\card_form.html:71
 #: .\apps\console\templates\console\pass_form.html:95
@@ -358,12 +392,12 @@ msgstr "حذف"
 msgid "Add"
 msgstr "اضافه کردن"
 
-#: .\apps\console\templates\console\dashboard.html:12
-#: .\apps\console\templates\console\dashboard.html:39
+#: .\apps\console\templates\console\dashboard.html:13
+#: .\apps\console\templates\console\dashboard.html:40
 msgid "Add new"
 msgstr "افزودن رمز جدید"
 
-#: .\apps\console\templates\console\dashboard.html:22
+#: .\apps\console\templates\console\dashboard.html:23
 msgid "Check passwords quality"
 msgstr "بررسی کیفیت رمز ها"
 
@@ -393,11 +427,11 @@ msgstr "به اپلیکیشن کپسول خوش آمدید"
 msgid "Persian"
 msgstr "فارسی"
 
-#: .\capsule\urls.py:18
+#: .\capsule\urls.py:20
 msgid "Site Management"
 msgstr "مدیریت وبسایت"
 
-#: .\capsule\urls.py:19
+#: .\capsule\urls.py:21
 msgid "Management Panel"
 msgstr "پنل مدیریت"
 
@@ -409,8 +443,8 @@ msgstr "مدیر سایت جنگو"
 msgid "Django administration"
 msgstr "مدیریت جنگو"
 
-#: .\templates\includes\header.html:6 .\templates\includes\sidebar.html:28
-#: .\templates\includes\sidebar.html:32 .\templates\includes\sidebar.html:34
+#: .\templates\includes\header.html:6 .\templates\includes\sidebar.html:32
+#: .\templates\includes\sidebar.html:36 .\templates\includes\sidebar.html:38
 msgid "Dashboard"
 msgstr "پیشخوان"
 
@@ -426,20 +460,20 @@ msgstr "اعلان ها"
 msgid "User account"
 msgstr "حساب کاربری"
 
-#: .\templates\includes\sidebar.html:70 .\templates\includes\sidebar.html:74
-#: .\templates\includes\sidebar.html:76
+#: .\templates\includes\sidebar.html:74 .\templates\includes\sidebar.html:78
+#: .\templates\includes\sidebar.html:80
 msgid "Archives"
 msgstr "بایگانی"
 
-#: .\templates\includes\sidebar.html:83
+#: .\templates\includes\sidebar.html:85 .\templates\includes\sidebar.html:87
 msgid "Exit"
 msgstr "خروج"
 
-#: .\templates\includes\sidebar.html:92 .\templates\includes\sidebar.html:103
+#: .\templates\includes\sidebar.html:96 .\templates\includes\sidebar.html:107
 msgid "Random password"
 msgstr "رمز تصادفی"
 
-#: .\templates\includes\sidebar.html:94
+#: .\templates\includes\sidebar.html:98
 msgid "Generate pass"
 msgstr "رمز بساز"
 
@@ -697,6 +731,7 @@ msgid ""
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1362
+#: .\venv\Lib\site-packages\django_jalali\db\models.py:63
 msgid "Date (without time)"
 msgstr ""
 
@@ -715,6 +750,7 @@ msgid ""
 msgstr ""
 
 #: .\venv\Lib\site-packages\django\db\models\fields\__init__.py:1502
+#: .\venv\Lib\site-packages\django_jalali\db\models.py:233
 msgid "Date (with time)"
 msgstr ""
 
@@ -901,6 +937,7 @@ msgstr ""
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:467
 #: .\venv\Lib\site-packages\django\forms\fields.py:1241
+#: .\venv\Lib\site-packages\django_jalali\forms\__init__.py:15
 msgid "Enter a valid date."
 msgstr "یک تاریخ معتبر وارد کنید."
 
@@ -910,6 +947,7 @@ msgid "Enter a valid time."
 msgstr "یک زمان معتبر وارد کنید."
 
 #: .\venv\Lib\site-packages\django\forms\fields.py:517
+#: .\venv\Lib\site-packages\django_jalali\forms\__init__.py:54
 msgid "Enter a valid date/time."
 msgstr ""
 
@@ -1642,11 +1680,70 @@ msgstr ""
 msgid "Connect, get help, or contribute"
 msgstr ""
 
+#: .\venv\Lib\site-packages\django_jalali\admin\filters.py:38
+#: .\venv\Lib\site-packages\django_jalali\admin\filterspecs.py:39
+#, fuzzy
+#| msgid "Add new data"
+msgid "Any date"
+msgstr "افزودن داده جدید"
+
+#: .\venv\Lib\site-packages\django_jalali\admin\filters.py:40
+#: .\venv\Lib\site-packages\django_jalali\admin\filterspecs.py:40
+msgid "Today"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_jalali\admin\filters.py:47
+#: .\venv\Lib\site-packages\django_jalali\admin\filterspecs.py:42
+msgid "Past 7 days"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_jalali\admin\filters.py:56
+#: .\venv\Lib\site-packages\django_jalali\admin\filterspecs.py:49
+#, fuzzy
+#| msgid "Expire month"
+msgid "This month"
+msgstr "ماه انقضا"
+
+#: .\venv\Lib\site-packages\django_jalali\admin\filters.py:65
+#: .\venv\Lib\site-packages\django_jalali\admin\filterspecs.py:60
+#, fuzzy
+#| msgid "Expire year"
+msgid "This year"
+msgstr "سال انقضا"
+
+#: .\venv\Lib\site-packages\django_jalali\admin\widgets.py:53
+msgid "Date:"
+msgstr ""
+
+#: .\venv\Lib\site-packages\django_jalali\admin\widgets.py:55
+#, fuzzy
+#| msgid "Time"
+msgid "Time:"
+msgstr "زمان"
+
+#: .\venv\Lib\site-packages\django_jalali\db\models.py:66
+#, fuzzy
+#| msgid "Enter a valid date."
+msgid "Enter a valid date in YYYY-MM-DD format."
+msgstr "یک تاریخ معتبر وارد کنید."
+
+#: .\venv\Lib\site-packages\django_jalali\db\models.py:67
+#, fuzzy, python-format
+#| msgid "Enter a valid date."
+msgid "Invalid date: %s"
+msgstr "یک تاریخ معتبر وارد کنید."
+
+#: .\venv\Lib\site-packages\django_jalali\db\models.py:230
+msgid "Enter a valid date/time in YYYY-MM-DD HH:MM[:ss[.uuuuuu]] format."
+msgstr ""
+
+#, fuzzy
+#~| msgid "Delete"
+#~ msgid "Delete?"
+#~ msgstr "حذف"
+
 #~ msgid "Settings"
 #~ msgstr "تنظیمات"
-
-#~ msgid "Add new data"
-#~ msgstr "افزودن داده جدید"
 
 #~ msgid "Please check 'Spams' if didn't find it"
 #~ msgstr "اگر آنرا نیافتید 'اسپم‌ها' را بررسی کنید"

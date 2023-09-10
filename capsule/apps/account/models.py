@@ -4,6 +4,7 @@ from django.utils.crypto import get_random_string
 from django.utils import timezone
 from django.db import models
 
+from django_jalali.db import models as j_models
 from .managers import CustomUserManager
 
 
@@ -13,6 +14,9 @@ class User(AbstractUser):
     mobile = models.CharField(_("Mobile number"), max_length=11, unique=True, null=True, blank=True)
     full_name = models.CharField(_("Name"), max_length=64, null=True, blank=True)
     verify = models.BooleanField(_("Is_verify"), default=False)
+    melli = models.CharField(_("Melli code"), max_length=10, null=True, blank=True)
+    date_of_birth = j_models.jDateField(_("Date of birth"), null=True, blank=True)
+    image = models.ImageField(_("Profile image"), null=True, blank=True, upload_to="img/profile")
     first_name = None
     last_name = None
     email = None

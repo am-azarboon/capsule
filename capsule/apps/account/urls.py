@@ -13,7 +13,10 @@ urlpatterns = [
     path("verify-email/", views.VerifyEmailView.as_view(), name="verify"),
     path("resend-code/", views.ResendCodeView.as_view(), name="resend"),
 
+    path("password-change/", views.PasswordChangeView.as_view(), name="password-change"),
     path("password-reset/", views.PasswordResetView.as_view(), name="password-reset"),
     path("password-reset/confirm/", views.PasswordResetConfirmView.as_view(), name="password-reset-confirm"),
     path("password-reset/complete/", PasswordResetCompleteView.as_view(template_name="account/password_reset_complete.html"), name="password-reset-complete"),
+
+    path("profile/", views.UserProfileView.as_view(), name="profile"),
 ]

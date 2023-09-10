@@ -13,16 +13,20 @@
                 </a>
             </section>
             <div class="max-w-[12rem] flex flex-row items-center mt-2 px-1">
-                <a href="#" class="flex flex-row items-center gap-3 text-slate-800 hover:text-slate-500" title="{% translate "User account" %}">
-                    <img class="min-w-[35px]" src="{% static "img/profile.png" %}" alt="User image" width="25" height="25">
+                <a href="{% url "account:profile" %}" class="flex flex-row items-center gap-3 text-slate-800 hover:text-slate-500" title="{% translate "User account" %}">
+                    {% if request.user.image %}
+                        <img class="min-w-[35px] rounded-full" src="{{ request.user.image.url }}" alt="User image" width="25" height="25">
+                    {% else %}
+                        <img class="min-w-[35px]" src="{% static "img/profile.png" %}" alt="User image" width="25" height="25">
+                    {% endif %}
                     <!-- <i class="bi bi-person-circle text-3xl" style="-webkit-text-stroke: 0.5px;"></i> -->
-                    <h3 class="max-w-[18rem] text-sm text-right flex-wrap">امیرمهدی محمد پور</h3>
+                    <h3 class="max-w-[18rem] text-sm text-right flex-wrap">{{ request.user.full_name }}</h3>
                 </a>
             </div>
         </div>
         <ul class="flex flex-col gap-4 pt-12 pb-8 lg:pr-14 pr-6">
             <li>
-                {% if request.resolver_match.url_name == "dashboard" %}
+                {% if request.resolver_match.url_name == "dashboard" or request.resolver_match.url_name == "profile" %}
                     <a href="{% url "console:dashboard" %}" class="lg:text-slate-800 text-slate-600 flex flex-row items-center gap-8">
                         <i class="bi bi-house-fill bg-slate-300 rounded-lg px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 0.5pt;"></i>
                         <h4 class="font-bold">{% translate "Dashboard" %}</h4>

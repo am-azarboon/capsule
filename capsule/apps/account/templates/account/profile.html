@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+{% load static %}
+{% load i18n %}
+
+{% block title %}{% translate "Capsule dashboard" %}{% endblock %}
+
+{% block content %}
+    <!-- Start main section -->
+    <main class="sm:px-20 mt-12 px-4">
+        <!-- Start Profile form sections -->
+        <div class="pb-4 md:mt-12 mt-8">
+            <section>
+                <h2 class="text-slate-700 sm:text-xl text-lg font-iransans-extrabold text-right">حساب کاربری</h2>
+            </section>
+
+            <section class="w-full border-2 border-gray-300 rounded-xl p-4 mt-8">
+                <!-- Start user profile form -->
+                <form method="POST" id="form" enctype="multipart/form-data" class="flex flex-col gap-4 text-slate-700">
+                    {% csrf_token %}
+                    <label for="image" class="w-fit flex gap-3 items-center">
+                        {% if form.instance.image %}
+                            <img src="{{ form.instance.image.url }}" id="profile-image" alt="Profile image" width="100" height="100"
+                                class="rounded-full w-24 h-24 crop">
+                        {% else %}
+                            <img src="{% static "img/profile.png" %}" id="profile-image" alt="Profile image" width="100" height="100"
+                                class="rounded-full w-24 h-24 crop">
+                        {% endif %}
+                        {{ form.image|attr:"onchange:document.getElementById('profile-image').src = window.URL.createObjectURL(this.files[0])" }}
+                        <span class="bg-slate-300 text-slate-800 cursor-pointer hover:bg-slate-400 text-sm text-center rounded-lg px-2 py-1">ویرایش تصویر</span>
+                    </label>
+
+                    <div class="w-full flex flex-wrap gap-4 mt-6">
+                        <label for="username" class="flex flex-col flex-grow gap-1">
+                            <span class="px-1">
+                                ایمیل
+                                <span class="text-xs">(نام کاربری)</span>
+                            </span>
+                            {{ form.username }}
+                        </label>
+                        <label for="name" class="flex flex-col flex-grow gap-1">
+                            <span class="px-1">
+                                نام کامل
+                            </span>
+                            {{ form.full_name }}
+                        </label>
+                    </div>
+                    <div class="w-full flex flex-wrap gap-4">
+                        <label for="mobile" class="flex flex-col flex-grow gap-1">
+                            <span class="px-1">
+                                شماره موبایل
+                                <span class="text-xs">(اختیاری)</span>
+                            </span>
+                            {{ form.mobile }}
+                        </label>
+                        <label for="melli" class="flex flex-col flex-grow gap-1">
+                            <span class="px-1">
+                                کدملی
+                                <span class="text-xs">(اختیاری)</span>
+                            </span>
+                            {{ form.melli }}
+                        </label>
+                    </div>
+{#                    <div class="w-full flex flex-wrap gap-4">#}
+{#                        <label for="date_of_birth" class="flex flex-col sm:w-56 gap-1">#}
+{#                            <span class="px-1">#}
+{#                                تاریخ تولد#}
+{#                                <span class="text-xs">(اختیاری)</span>#}
+{#                            </span>#}
+{#                            {{ form.date_of_birth }}#}
+{#                        </label>#}
+{#                    </div>#}
+
+                    <div class="flex justify-between gap-4 text-slate-100 px-1 mt-4">
+                        <a href="{% url "account:password-change" %}" class="bg-slate-700 hover:bg-slate-600 text-slate-100 rounded-lg px-3 py-1.5">{% translate "Edit password" %}</a>
+                        <button type="submit" class="bg-slate-700 hover:bg-slate-600 rounded-lg font-bold px-3 py-1.5">{% translate "Save" %}</button>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+    <!-- .End Mian section -->
+{% endblock %}

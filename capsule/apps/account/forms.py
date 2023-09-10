@@ -142,3 +142,67 @@ class PasswordResetConfirmForm(forms.Form):
             raise ValidationError(_("Passwords are not match!"), code="PASSWORDS-NOT-MATCH")
 
         return self.cleaned_data["password"]
+
+
+# UserProfile form
+class UserProfileForm(forms.ModelForm):
+    class Meta:
+        model = User
+        fields = ["image", "username", "full_name", "mobile", "melli"]
+
+        widgets = {
+            "image": forms.FileInput(attrs={
+                "class": "hidden",
+                "id": "image",
+            }),
+            "username": forms.EmailInput(attrs={
+                "class": "text-slate-800 focus:border-gray-400 border-2 focus:outline-none focus:ring-0 rounded-lg px-2 py-1.5 ss01",
+                "id": "username",
+            }),
+            "full_name": forms.TextInput(attrs={
+                "class": "text-slate-800 focus:border-gray-400 border-2 focus:outline-none text-right focus:ring-0 rounded-lg px-2 py-1.5 ss01",
+                "id": "name",
+            }),
+            "mobile": forms.TextInput(attrs={
+                "class": "text-slate-800 focus:border-gray-400 border-2 focus:outline-none focus:ring-0 placeholder:opacity-80 rounded-lg px-2 py-1.5 ss01",
+                "placeholder": _("Mobile number"),
+                "id": "mobile",
+            }),
+            "melli": forms.TextInput(attrs={
+                "class": "text-slate-800 focus:border-gray-400 border-2 focus:outline-none focus:ring-0 rounded-lg px-2 py-1.5 ss01",
+                "id": "melli",
+            }),
+        }
+
+
+# PasswordChange form
+class PasswordChangeForm(forms.Form):
+    user_password = forms.CharField(max_length=128, required=True, widget=forms.PasswordInput(attrs={
+        "class": "text-slate-800 w-full focus:border-gray-400 border-2 focus:outline-none text-right focus:ring-0 rounded-lg px-2 py-1.5 ss01",
+        "id": "user_password",
+    }))
+    password = forms.CharField(max_length=128, required=True, widget=forms.PasswordInput(attrs={
+        "class": "text-slate-800 w-full focus:border-gray-400 border-2 focus:outline-none text-right focus:ring-0 rounded-lg px-2 py-1.5 ss01",
+        "id": "password",
+    }))
+    password2 = forms.CharField(max_length=128, required=True, widget=forms.PasswordInput(attrs={
+        "class": "text-slate-800 w-full focus:border-gray-400 border-2 focus:outline-none text-right focus:ring-0 rounded-lg px-2 py-1.5 ss01",
+        "id": "password2",
+    }))
+
+    def clean_password(self):
+        password = self.cleaned_data.get("password")
+
+        if len(password) < 8:
+            raise ValidationError(_("Password must be at least 8 characters."), code="PASSWORD-SHORT")
+
+        return password
+
+    def clean_password2(self):
+        password = self.cleaned_data.get("password")
+        password2 = self.cleaned_data.get("password2")
+
+        if password and password2 and password2 != password:
+            raise ValidationError(_("Passwords are not match!"), code="PASSWORDS-NOT-MATCH")
+
+        return password

@@ -1,7 +1,8 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import gettext as _
 from django.views.generic import FormView, View
 from django.http import JsonResponse, Http404
-from django.contrib.auth import login
+from django.contrib.auth import login, logout
 from django.shortcuts import reverse
 from django.urls import reverse_lazy
 from django.contrib import messages
@@ -31,6 +32,7 @@ class LoginView(LogoutRequiredMixin, FormView):
 
         user = form.cleaned_data.get("user")
         login(self.request, user)
+
         return super().form_valid(form)
 
 
@@ -206,4 +208,46 @@ class PasswordResetConfirmView(LogoutRequiredMixin, FormView):
         # Delete password reset token
         password_token.delete()
 
+        return super().form_valid(form)
+
+
+# Render UserProfileView
+class UserProfileView(LoginRequiredMixin, FormView):
+    template_name = "account/profile.html"
+    form_class = forms.UserProfileForm
+    success_url = reverse_lazy("console:dashboard")
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs["instance"] = self.request.user
+        return kwargs
+
+    def form_valid(self, form):
+        form.save()
+
+        return super().form_valid(form)
+
+
+# Render ChangePasswordView
+class PasswordChangeView(LoginRequiredMixin, FormView):
+    template_name = "account/password_change.html"
+    form_class = forms.PasswordChangeForm
+    success_url = reverse_lazy("account:login")
+
+    def form_valid(self, form):
+        """ Check user current password and then set new password. """
+
+        user = self.request.user
+        user_password = form.cleaned_data.get("user_password")
+
+        if not user.check_password(user_password):
+            form.add_error("user_password", _("Password is not correct."))
+            return super().form_invalid(form)
+
+        password = form.cleaned_data.get("password")
+        user.set_password(password)
+        user.save()
+
+        logout(self.request)  # Logout user for fresh login
+        
         return super().form_valid(form)

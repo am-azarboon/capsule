@@ -3,7 +3,7 @@
 
 <header class="w-full flex flex-row flex-wrap-reverse items-center justify-between gap-4 gap-y-8 sm:pt-12 sm:px-20 pt-10 px-4">
     <!-- Title of dashboard -->
-    <h1 class="text-slate-700 text-3xl font-bold sm:pt-0 pt-8">{% translate "Dashboard" %}</h1>
+    <h1 class="text-slate-700 text-3xl font-bold sm:block hidden sm:pt-0 pt-8">{% translate "Dashboard" %}</h1>
     <!-- Search section -->
     <div class="w-full md:w-auto flex flex-row items-center gap-6 justify-between">
         <!-- Search bar -->
@@ -23,26 +23,19 @@
             <!-- Notification counts -->
             <span id="notif-count" class="absolute top-1 right-1 px-2 py-1 translate-x-1/2 -translate-y-1/2 bg-slate-700 rounded-full text-xs text-white ss01">0</span>
             <!-- Notification menu -->
-            <span id="notif-menu" class="absolute bottom-1 right-0 w-48 translate-y-36 translate-x-40 z-10 hidden">
+            <span id="notif-menu" class="absolute top-7 right-0 w-48 translate-x-40 z-10 hidden">
                 <ul class="bg-slate-800 flex flex-col gap-2 rounded-xl p-2">
                     <li class="text-slate-100 bg-slate-600 flex flex-col gap-1 text-xs rounded-lg p-1">
                         <span class="flex flex-row-reverse justify-between">
-                            <h4 class="ss01">11:20</h4>
-                            <h4 class="ss03">5/18/2023</h4>
+                            <span class="ss01">11:20</span>
+                            <span class="ss03">5/18/2023</span>
                         </span>
                         <p class="text-right">ورود به حساب</p>
                     </li>
                     <li class="text-slate-100 bg-slate-600 flex flex-col gap-1 text-xs rounded-lg p-1">
                         <span class="flex flex-row-reverse justify-between">
-                            <h4 class="ss01">03:05</h4>
-                            <h4 class="ss03">3/25/2023</h4>
-                        </span>
-                        <p class="text-right">تغییر اطلاعات حساب</p>
-                    </li>
-                    <li class="text-slate-100 bg-slate-600 flex flex-col gap-1 text-xs rounded-lg p-1">
-                        <span class="flex flex-row-reverse justify-between">
-                            <h4 class="ss01">15:45</h4>
-                            <h4 class="ss03">3/8/2023</h4>
+                            <span class="ss01">11:20</span>
+                            <span class="ss03">5/18/2023</span>
                         </span>
                         <p class="text-right">ورود به حساب</p>
                     </li>
