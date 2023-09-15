@@ -82,10 +82,13 @@
                 {% endif %}
             </li>
             <li>
-                <a href="{% url "account:logout" %}" title="{% translate "Exit" %}" class="text-gray-400 hover:text-slate-600 flex flex-row items-center gap-8">
-                    <i class="bi bi-door-open rounded-lg px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 0.5pt;"></i>
-                    <h4 class="font-bold">{% translate "Exit" %}</h4>
-                </a>
+                <form action="{% url "account:logout" %}" method="POST" title="{% translate "Exit" %}">
+                    {% csrf_token %}
+                    <button type="submit" class="text-gray-400 hover:text-slate-600 flex flex-row items-center gap-8">
+                        <i class="bi bi-door-open rounded-lg px-2.5 pt-2 pb-1" style="-webkit-text-stroke: 0.5pt;"></i>
+                        <span class="font-bold">{% translate "Exit" %}</span>
+                    </button>
+                </form>
             </li>
         </ul>
     </div>

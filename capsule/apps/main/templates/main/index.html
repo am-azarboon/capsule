@@ -9,14 +9,46 @@
     <title>{% translate "Capsule | Password manager" %}</title>
 </head>
 
-<body class="h-screen w-screen bg-gray-100 flex flex-col items-center gap-2 sm:px-14 py-14" dir="rtl">
-    <main class="sm:w-96 w-10/12 bg-gray-300 flex flex-col items-center justify-center rounded-xl p-8 md:mt-20 mt-12">
-        <h3 class="text-center">{% translate "Welcome to Capsule App" %}</h3>
+<body dir="rtl" class="bg-slate-100 w-screen">
+    <header class="bg-slate-300 w-full flex justify-between items-center rounded-b-2xl sm:px-12 px-4 py-5">
+        <a href="{% url "main:main" %}">
+            <div class="flex gap-2">
+                <img src="{% static "img/pill.png" %}" alt="{% translate "Capsule" %}" width="38" height="38">
+                <h1 class="font-iransans-extrablack text-3xl text-gray-700">{% translate "Capsule" %}</h1>
+            </div>
+        </a>
 
-        <section class="flex flex-col items-center text-slate-800 gap-3 mt-10">
-            <a href="{% url "account:login" %}" id="pass-forgot" class="hover:text-slate-500">{% translate "Login" %}</a>
-            <a href="{% url "account:register" %}" id="register" class="hover:text-slate-500">{% translate "Register" %}</a>
-        </section>
+        <div class="flex gap-1">
+            <a href="{% url "account:login" %}" class="text-amber-400 bg-slate-800 hover:scale-105 rounded-r-lg px-2 py-1">ورود</a>
+            <a href="{% url "account:register" %}" class="text-amber-400 bg-slate-800 hover:scale-105 rounded-l-lg px-2 py-1">ثبت نام</a>
+        </div>
+    </header>
+
+    <main class="pb-4">
+        <div class="flex flex-col gap-2 text-center text-slate-700 mt-12">
+            <p class="text-xl">با کپسول، دیگه نگران فراموشی رمزها و کارت های بانکیت نباش!</p>
+            <small class="text-sm text-slate-700">سیستم مدیریت رمز و کارت <span class="font-iransans-black">کپسول</span>، حافظ امنیت شما.</small>
+        </div>
+
+        <div class="text-slate-200 flex gap-4 justify-evenly flex-wrap mt-20 md:px-32 px-12">
+            <section class="bg-slate-600 flex flex-col flex-shrink gap-8 items-center rounded-2xl pb-8">
+                <img src="{% static "img/undraw/undraw_security_on_re_e491.svg" %}" alt="Safety add" width="320" height="300"
+                    class="rounded-lg h-56 p-6">
+                <p class="font-bold">با خیال راحت ذخیره کن!</p>
+            </section>
+            <a href="{% url "account:register" %}" title="ثبت نام" class="scale-105 hover:z-10 hover:scale-110 focus:z-10 focus:scale-110">
+                <section class="bg-slate-600 flex flex-col flex-shrink gap-8 items-center rounded-2xl pb-8">
+                    <img src="{% static "img/undraw/undraw_site_content_re_4ctl.svg" %}" alt="Register now" width="320" height="300"
+                        class="rounded-lg h-56 p-6">
+                    <p class="font-bold">همین الان شروع کن!</p>
+                </section>
+            </a>
+            <section class="bg-slate-600 flex flex-col flex-shrink gap-8 items-center rounded-2xl pb-8">
+                <img src="{% static "img/undraw/undraw_browsing_re_eycn.svg" %}" alt="Access everywhere" width="320" height="300"
+                    class="rounded-lg h-56 p-6">
+                <p class="font-bold">همه جا دسترسی داشته باش!</p>
+            </section>
+        </div>
     </main>
 </body>
 </html>
