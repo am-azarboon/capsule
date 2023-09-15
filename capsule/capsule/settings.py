@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     "apps.console.apps.ConsoleConfig",
 
     # Django modules
-    "django_jalali",
     "widget_tweaks",
     "django_cleanup",
 ]
