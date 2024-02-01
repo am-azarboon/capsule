@@ -1494,154 +1494,41 @@ video {
 	url('../fonts/iransans/fonts/woff2/IRANSansX-Medium.woff2') format('woff2');
 }
 
-@font-face {
-  font-family: IRANSansSemiBold;
-
-  font-style: normal;
-
-  font-weight: 600;
-
-  src: url('../fonts/iransans/fonts/woff/IRANSansX-DemiBold.woff') format('woff'),
-	url('../fonts/iransans/fonts/woff2/IRANSansX-DemiBold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: IRANSansBold;
-
-  font-style: normal;
-
-  font-weight: bold;
-
-  src: url('../fonts/iransans/fonts/woff/IRANSansX-Bold.woff') format('woff'),
-	url('../fonts/iransans/fonts/woff2/IRANSansX-Bold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: IRANSansExtraBold;
-
-  font-style: normal;
-
-  font-weight: 800;
-
-  src: url('../fonts/iransans/fonts/woff/IRANSansX-ExtraBold.woff') format('woff'),
-	url('../fonts/iransans/fonts/woff2/IRANSansX-ExtraBold.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: IRANSansBlack;
-
-  font-style: normal;
-
-  font-weight: 900;
-
-  src: url('../fonts/iransans/fonts/woff/IRANSansX-Black.woff') format('woff'),
-  url('../fonts/iransans/fonts/woff2/IRANSansX-Black.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: IRANSansExtraBlack;
-
-  font-style: normal;
-
-  font-weight: 950;
-
-  src: url('../fonts/iransans/fonts/woff/IRANSansX-ExtraBlack.woff') format('woff'),
-	url('../fonts/iransans/fonts/woff2/IRANSansX-ExtraBlack.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: IRANSansHeavy;
-
-  font-style: normal;
-
-  font-weight: 1000;
-
-  src: url('../fonts/iransans/fonts/woff/IRANSansX-Heavy.woff') format('woff'),
-	url('../fonts/iransans/fonts/woff2/IRANSansX-Heavy.woff2') format('woff2');
-}
-
-@font-face {
-  font-family: IRANSansRegular;
-
-  font-style: normal;
-
+@font-face{
+  font-family: Vazir;
+  src: url('../fonts/Vazir.ttf');
   font-weight: normal;
-
-  src: url('../fonts/iransans/fonts/woff/IRANSansX-Regular.woff') format('woff'),
-	url('../fonts/iransans/fonts/woff2/IRANSansX-Regular.woff2') format('woff2');
+  font-style: normal;
 }
 
 @font-face{
-  font-family: Vazir;
-
-  src: url('../fonts/Vazir.ttf');
-
+  font-family: Vazir-Meduim;
+  src: url('../fonts/Vazir-Medium.ttf');
   font-weight: normal;
-
   font-style: normal;
 }
 
 @font-face{
   font-family: Samim;
-
   src: url('../fonts/samim.ttf');
-
   font-weight: normal;
-
   font-style: normal;
 }
 
-
 html {
-  font-family: IRANSansMedium, sans-serif;
-}
-
-.font-iransans-thin {
-  font-family: IRANSansThin, sans-serif;
-}
-
-.font-iransans-ultralight {
-  font-family: IRANSansUltraLight, sans-serif;
-}
-
-.font-iransans-light {
-  font-family: IRANSansLight, sans-serif;
-}
-
-.font-iransans-medium {
-  font-family: IRANSansMedium, sans-serif;
-}
-
-.font-iransans-semibold {
-  font-family: IRANSansSemiBold, sans-serif;
-}
-
-.font-iransans-bold {
-  font-family: IRANSansBold, sans-serif;
-}
-
-.font-iransans-extrabold {
-  font-family: IRANSansExtraBold, sans-serif;
-}
-
-.font-iransans-black {
-  font-family: IRANSansBlack, sans-serif;
-}
-
-.font-iransans-extrablack {
-  font-family: IRANSansExtraBlack, sans-serif;
-}
-
-.font-iransans-heavy {
-  font-family: IRANSansHeavy, sans-serif;
-}
-
-.font-iransans-regular {
-  font-family: IRANSansRegular, sans-serif;
+  font-family: Vazir, sans-serif;
 }
 
 .font-nunito {
   font-family: 'Nunito', sans-serif;
+}
+
+.font-vazir {
+  font-family: Vazir, sans-serif;
+}
+
+.font-vazir-medium {
+  font-family: Vazir-Meduim, sans-serif;
 }
 
 .ss01 {
@@ -1658,6 +1545,10 @@ html {
 
 .ltr {
   direction: ltr;
+}
+
+.fw-700 {
+  font-weight: 700;
 }
 
 .right-64 {

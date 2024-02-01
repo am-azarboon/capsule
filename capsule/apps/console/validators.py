@@ -62,4 +62,7 @@ def pass_difficulty_ave(passwords):
         else:
             quality += 0.25
 
-    return round((quality / len(passwords)) * 100)
+    try:
+        return round((quality / len(passwords)) * 100)
+    except ZeroDivisionError:
+        return 0

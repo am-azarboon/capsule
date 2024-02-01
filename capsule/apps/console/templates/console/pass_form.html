@@ -9,7 +9,7 @@
         <!-- Start Recently added sections -->
         <div class="pb-4 md:mt-12 mt-8">
             <section>
-                <h2 class="text-slate-700 sm:text-xl text-lg font-iransans-extrabold text-right">{% translate "Add new password" %}</h2>
+                <h2 class="text-slate-700 sm:text-xl text-lg font-vazir-medium text-right">{% translate "Add new password" %}</h2>
             </section>
 
             <section id="form-section" class="w-full mt-8 border-2 border-gray-300 rounded-xl p-4">
@@ -17,7 +17,7 @@
                 <form action="" method="POST" id="form" class="flex flex-col gap-4 text-slate-700">
                     {% csrf_token %}
                     <label for="type" class="lg:w-1/4 sm:w-1/3 w-2/3 flex flex-col gap-2">
-                        <span class="font-iransans-semibold px-1">
+                        <span class="font-vazir px-1">
                             نوع
                         </span>
                         <select id="type" onchange="change_form(event)"

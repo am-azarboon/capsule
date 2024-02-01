@@ -3,39 +3,39 @@
 
 <header class="w-full flex flex-row flex-wrap-reverse items-center justify-between gap-4 gap-y-8 sm:pt-12 sm:px-20 pt-10 px-4">
     <!-- Title of dashboard -->
-    <h1 class="text-slate-700 text-3xl font-bold sm:block hidden sm:pt-0 pt-8">{% translate "Dashboard" %}</h1>
+    <h1 class="text-slate-700 text-3xl font-bold sm:block hidden sm:pt-0 pt-8">پیشخوان</h1>
     <!-- Search section -->
     <div class="w-full md:w-auto flex flex-row items-center gap-6 justify-between">
         <!-- Search bar -->
         <div class="relative w-80">
             <form action="{% url "console:passwords" %}" method="POST" id="q">
                 {% csrf_token %}
-                <input type="text" name="q" placeholder="{% translate "Search" %}"
+                <input type="text" name="q" placeholder="جستجو"
                        class="w-full py-3 pr-12 text-right rounded-2xl border border-gray-300 focus:border-gray-400 focus:outline-none">
             </form>
             <div class="absolute inset-y-0 right-0 flex flex-row-reverse items-center px-5 -top-2 text-gray-700">
-                <button form="q" type="submit" title="{% translate "Search" %}" class="bi bi-search h-4 w-4 fill-current text-xl text-slate-500"></button>
+                <button form="q" type="submit" title="جستجو" class="bi bi-search h-4 w-4 fill-current text-xl text-slate-500"></button>
             </div>
         </div>
         <!-- Notification button -->
         <button id="notif-btn" type="button" title="{% translate "Notifications" %}" class="bi bi-bell relative bg-slate-300 text-lg rounded-2xl pt-3 pb-2 px-3.5"
                 style="-webkit-text-stroke: 0.3pt;">
             <!-- Notification counts -->
-            <span id="notif-count" class="absolute top-1 right-1 px-2 py-1 translate-x-1/2 -translate-y-1/2 bg-slate-700 rounded-full text-xs text-white ss01">0</span>
+            <span id="notif-count" class="absolute top-1 right-1 px-2 py-1 translate-x-1/2 -translate-y-1/2 bg-slate-700 rounded-full text-xs text-white convert-digits">0</span>
             <!-- Notification menu -->
             <span id="notif-menu" class="absolute top-7 right-0 w-48 translate-x-40 z-10 hidden">
                 <ul class="bg-slate-800 flex flex-col gap-2 rounded-xl p-2">
                     <li class="text-slate-100 bg-slate-600 flex flex-col gap-1 text-xs rounded-lg p-1">
                         <span class="flex flex-row-reverse justify-between">
-                            <span class="ss01">11:20</span>
-                            <span class="ss03">5/18/2023</span>
+                            <span class="convert-digits">11:20</span>
+                            <span class="convert-digits">1402/3/15</span>
                         </span>
                         <p class="text-right">ورود به حساب</p>
                     </li>
                     <li class="text-slate-100 bg-slate-600 flex flex-col gap-1 text-xs rounded-lg p-1">
                         <span class="flex flex-row-reverse justify-between">
-                            <span class="ss01">11:20</span>
-                            <span class="ss03">5/18/2023</span>
+                            <span class="convert-digits">11:20</span>
+                            <span class="convert-digits">1402/4/15</span>
                         </span>
                         <p class="text-right">ورود به حساب</p>
                     </li>

@@ -24,19 +24,21 @@
         </div>
     {% endif %}
 
-    <h1 class="text-center text-4xl text-gray-700 font-iransans-extrablack">
-        <a href="{% url "main:main" %}">{% translate "Capsule" %}</a>
+    <h1 class="text-center text-4xl text-gray-700 font-vazir-medium">
+        <a href="{% url "main:main" %}">کپسول</a>
     </h1>
 
     <main class="sm:w-96 w-10/12 bg-gray-300 flex flex-col items-center justify-center rounded-xl p-8 md:mt-20 mt-12">
         <form class="w-full flex flex-col gap-2 ltr text-slate-700" method="POST">
             {% csrf_token %}
             {{ form.code }}
-            <button class="bg-slate-700 text-white mt-4 p-2 rounded-md hover:bg-slate-800" type="submit" title="verify">{% translate "Verify" %}</button>
+            <button class="bg-slate-700 text-white mt-4 p-2 rounded-md hover:bg-slate-800" type="submit" title="verify">
+                تایید
+            </button>
         </form>
 
         <section class="text-slate-800 flex flex-row-reverse flex-wrap justify-center gap-1 mt-10">
-            <a href="#" id="resend-btn" class="hover:text-slate-600 hidden">{% translate "Resend" %}</a>
+            <a href="#" id="resend-btn" class="hover:text-slate-600 hidden">ارسال مجدد</a>
             <div id="resend-timer" class="ss01">(2:00)</div>
         </section>
     </main>

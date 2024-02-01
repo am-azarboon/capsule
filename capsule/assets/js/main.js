@@ -81,3 +81,13 @@ async function archive(e, pk) {
       }
   })
 }
+
+// Convert digits to persian digits
+const farsiDigits = ['۰', '۱', '۲', '۳', '۴', '۵', '۶', '۷', '۸', '۹'];
+
+let en_digits = document.querySelectorAll('.convert-digits');
+for (let dt_el of en_digits) {
+    let dt = dt_el.innerHTML || dt_el.value;
+    dt_el.innerHTML = dt.toString().replace(/\d/g, x => farsiDigits[x]);
+    dt_el.value = dt.toString().replace(/\d/g, x => farsiDigits[x]);
+}

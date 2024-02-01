@@ -5,15 +5,15 @@
     <div>
         <div class="lg:bg-gray-300 bg-gray-400 flex flex-col rounded-bl-[40px] gap-8 pt-12 pb-8 lg:pr-14 pr-6 pl-5">
             <section class="flex flex-row justify-between pr-1">
-                <a href="{% url "main:main" %}" title="{% translate "Capsule" %}">
+                <a href="{% url "main:main" %}" title="کپسول">
                     <div class="flex flex-row gap-3">
                         <img src="{% static "img/pill.png" %}" alt="Capsule" width="36" height="36">
-                        <h3 class="font-iransans-extrablack text-3xl text-gray-700">{% translate "Capsule" %}</h3>
+                        <h3 class="font-vazir fw-700 text-3xl text-gray-700">کپسول</h3>
                     </div>
                 </a>
             </section>
             <div class="max-w-[12rem] flex flex-row items-center mt-2 px-1">
-                <a href="{% url "account:profile" %}" class="flex flex-row items-center gap-3 text-slate-800 hover:text-slate-500" title="{% translate "User account" %}">
+                <a href="{% url "account:profile" %}" class="flex flex-row items-center gap-3 text-slate-800 hover:text-slate-500" title="حساب کاربری">
                     {% if request.user.image %}
                         <img class="min-w-[35px] rounded-full" src="{{ request.user.image.url }}" alt="User image" width="25" height="25">
                     {% else %}
